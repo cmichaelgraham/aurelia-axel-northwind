@@ -109,6 +109,18 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
 
 ### Play with OData URLs
 
+1. The `/odata` URL returns a catalog of the available collections
+
+    ![image](https://cloud.githubusercontent.com/assets/10272832/13908951/2a527e10-eed3-11e5-9d6d-b8f564946dfb.png)
+
+2. The `/odata/$metadata` URL returns detailed data on the Entities and their Properties
+
+    ![image](https://cloud.githubusercontent.com/assets/10272832/13909167/95c6c9ca-eed4-11e5-8dfd-4f72faa40bb0.png)
+    
+3. It is easy to pull back the first 5 Customers like so:
+
+    ![image](https://cloud.githubusercontent.com/assets/10272832/13909243/f0eb7422-eed4-11e5-8cb6-9e1d9d96efc9.png)
+
 ### Create Search Route and Search View
 
 ### Create Search Criteria View
