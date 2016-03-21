@@ -21,15 +21,17 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
 
 ![image](https://cloud.githubusercontent.com/assets/10272832/13908176/2f3e22c2-eec3-11e5-96e6-59d7d3c41d86.png)
 
-1. Rename the folder: aurelia-axel :arrow_right: aurelia-axel-northwind
-2. Rename the solution file :arrow_right: aurelia-axel-northwind.sln
-3. Switch to the aurelia-axel-northwind folder
-4. Rename the project file :arrow_right: aurelia-axel-northwind.csproj
+1. Rename the folder: `aurelia-axel` :arrow_right: `aurelia-axel-northwind`
+2. Rename the solution file :arrow_right: `aurelia-axel-northwind.sln`
+3. Switch to the `aurelia-axel-northwind` folder
+4. Rename the project file :arrow_right: `aurelia-axel-northwind.csproj`
 5. Switch back to the main folder
 6. Open the solution in Visual Studio (run as administrator)
 7. Right click the old project (which didn't load) and remove it from the solution.
 8. Right click the solution and `add - existing project` and browse to the renamed project file
 9. The project should load
+
+![image](https://cloud.githubusercontent.com/assets/10272832/13908359/98e30640-eec6-11e5-8d14-5c654cd39036.png)
 
 ### Create EF Model
 
