@@ -35,6 +35,10 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
 
 ### Create EF Model
 
+1. Create new empty project
+
+    ![image](https://cloud.githubusercontent.com/assets/10272832/13908387/2bb9a7e4-eec7-11e5-85e5-574d230bec79.png)
+
 ### Create OData Controller
 
 ### Play with OData URLs
