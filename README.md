@@ -121,6 +121,10 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
 
     ![image](https://cloud.githubusercontent.com/assets/10272832/13909243/f0eb7422-eed4-11e5-8cb6-9e1d9d96efc9.png)
 
+4. We can sort by CustomerName (descending) like this:
+    
+    ![image](https://cloud.githubusercontent.com/assets/10272832/14044420/2223b084-f256-11e5-8df5-f28a49bb98ed.png)
+
 ### Create Search Route and Search View
 
 ### Create Search Criteria View
