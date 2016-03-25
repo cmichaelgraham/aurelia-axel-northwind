@@ -105,7 +105,11 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
     
     ![image](https://cloud.githubusercontent.com/assets/10272832/13908870/f7e645b6-eed1-11e5-961a-fb2ffd6070da.png)
     
-7. Rebuild and run in the browser
+7. Increase the Customer OData Controller's expand depth to 4 (from the default 2)
+    
+    ![image](https://cloud.githubusercontent.com/assets/10272832/14044746/7dc157fe-f259-11e5-97c8-58e03f64fcd5.png)
+
+8. Rebuild and run in the browser
 
 ### Play with OData URLs
 
