@@ -38,7 +38,7 @@ namespace aurelia_axel.Controllers
         }
 
         // GET: odata/Customers(5)
-        [EnableQuery]
+        [EnableQuery(MaxExpansionDepth = 4)]
         public SingleResult<Customer> GetCustomer([FromODataUri] string key)
         {
             return SingleResult.Create(db.Customers.Where(customer => customer.CustomerID == key));
