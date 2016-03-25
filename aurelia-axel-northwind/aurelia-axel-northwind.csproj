@@ -240,6 +240,7 @@
     <TypeScriptCompile Include="views\esri-globe.ts" />
     <TypeScriptCompile Include="views\flickr.ts" />
     <TypeScriptCompile Include="views\main.ts" />
+    <TypeScriptCompile Include="views\odata\odata-helper.ts" />
     <TypeScriptCompile Include="views\users.ts" />
     <TypeScriptCompile Include="views\welcome.ts" />
   </ItemGroup>
