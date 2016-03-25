@@ -115,39 +115,39 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
 
 #### The `/odata` URL returns a catalog of the available collections
 
-    ![image](https://cloud.githubusercontent.com/assets/10272832/13908951/2a527e10-eed3-11e5-9d6d-b8f564946dfb.png)
+![image](https://cloud.githubusercontent.com/assets/10272832/13908951/2a527e10-eed3-11e5-9d6d-b8f564946dfb.png)
 
 #### The `/odata/$metadata` URL returns detailed data on the Entities and their Properties
 
-    ![image](https://cloud.githubusercontent.com/assets/10272832/13909167/95c6c9ca-eed4-11e5-8dfd-4f72faa40bb0.png)
+![image](https://cloud.githubusercontent.com/assets/10272832/13909167/95c6c9ca-eed4-11e5-8dfd-4f72faa40bb0.png)
     
 #### It is easy to pull back the first 5 `Customers` like so:
 
-    ![image](https://cloud.githubusercontent.com/assets/10272832/13909243/f0eb7422-eed4-11e5-8cb6-9e1d9d96efc9.png)
+![image](https://cloud.githubusercontent.com/assets/10272832/13909243/f0eb7422-eed4-11e5-8cb6-9e1d9d96efc9.png)
 
 #### We can sort by `CustomerName` (descending) like this:
     
-    ![image](https://cloud.githubusercontent.com/assets/10272832/14044420/2223b084-f256-11e5-8df5-f28a49bb98ed.png)
+![image](https://cloud.githubusercontent.com/assets/10272832/14044420/2223b084-f256-11e5-8df5-f28a49bb98ed.png)
 
 #### We can choose to select only the data of interest so we aren't clogging up our network with data that don't want:
 
-    ![image](https://cloud.githubusercontent.com/assets/10272832/14045050/4909a478-f25c-11e5-8930-d12ebd8209c8.png)
+![image](https://cloud.githubusercontent.com/assets/10272832/14045050/4909a478-f25c-11e5-8930-d12ebd8209c8.png)
     
 #### We can get a specific `Customer` by the `CustomerId` like this:
 
-    ![image](https://cloud.githubusercontent.com/assets/10272832/14044853/5ba88452-f25a-11e5-93f6-122fcf7677b3.png)
+![image](https://cloud.githubusercontent.com/assets/10272832/14044853/5ba88452-f25a-11e5-93f6-122fcf7677b3.png)
     
 #### Or we can search for `Customers` that meet a specific criteria, in this case, `CompanyName` includes the string `fa`:
 
-    ![image](https://cloud.githubusercontent.com/assets/10272832/14045757/677c5134-f262-11e5-980a-e6752857ff2a.png)
+![image](https://cloud.githubusercontent.com/assets/10272832/14045757/677c5134-f262-11e5-980a-e6752857ff2a.png)
     
 #### Things get REALLY interesting when we use expand to pull back child data also.  Here we see the `Customer` object now has an `Orders` property that is an array of `Order` objects:
 
-    ![image](https://cloud.githubusercontent.com/assets/10272832/14044912/d4b8f5fc-f25a-11e5-8665-38798d90be0d.png)
+![image](https://cloud.githubusercontent.com/assets/10272832/14044912/d4b8f5fc-f25a-11e5-8665-38798d90be0d.png)
     
 #### We can go deep on the expand expression (`$expand=Orders,Orders/Order_Details,Orders/Order_Details/Product`):
 
-    ![image](https://cloud.githubusercontent.com/assets/10272832/14044973/904ac43a-f25b-11e5-95a1-d11ec5e30011.png)
+![image](https://cloud.githubusercontent.com/assets/10272832/14044973/904ac43a-f25b-11e5-95a1-d11ec5e30011.png)
     
 ### Create Search Route and Search View
 
