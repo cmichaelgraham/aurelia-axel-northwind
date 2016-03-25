@@ -31,7 +31,7 @@ namespace aurelia_axel.Controllers
         private NorthwindEntities db = new NorthwindEntities();
 
         // GET: odata/Customers
-        [EnableQuery]
+        [EnableQuery(MaxExpansionDepth = 4)]
         public IQueryable<Customer> GetCustomers()
         {
             return db.Customers;
