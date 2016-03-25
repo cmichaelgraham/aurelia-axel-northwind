@@ -151,6 +151,10 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
     
 ### Create Search Route and Search View
 
+Phew, that's a lot of background.  Now lets put that odata url understanding to use and build a page that lets a user search for customers that match the information they enter into a search criteria page.
+
+
+
 ### Create Search Criteria View
 
 ### Create Search Results View
