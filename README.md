@@ -17,11 +17,21 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
 
 If you don't alerady have it, grab yourself a copy of [Visual Studio - (free) Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs)
 
+#### Install Task Runner Explorer
+
 We are going to be using `gulp` for various build steps (which will be `tasks` in a `gulpfile.js`).  It is very convenient to be able to run these tasks from within Visual Studio.
 
 Luckily, the brilliant [Mads Kristensen](http://madskristensen.net/) is on the case and has provided (a separately installed) [Task Runner Explorer](https://visualstudiogallery.msdn.microsoft.com/8e1b4368-4afb-467a-bc13-9650572db708) which can display and run `gulp` tasks from within Visual Studio.
 
 You'll need Visual Studio for developing the server-side code.  This is only one path for server-side code, of course.
+
+Once you have `Task Runner Explorer` installed, you can view it by choosing `View --> Other Windows --> Task Runner Explorer`:
+
+![image](https://cloud.githubusercontent.com/assets/10272832/14059201/e7a1bc9e-f2ff-11e5-80cd-6e22db1d1635.png)
+
+You will see something that looks like this:
+
+![image](https://cloud.githubusercontent.com/assets/10272832/14059208/39326996-f300-11e5-9b5a-2e0c4f806497.png)
 
 ## Get Started With Data
 
