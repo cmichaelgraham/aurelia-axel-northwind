@@ -1,8 +1,14 @@
 define(["require", "exports"], function (require, exports) {
+    /**
+     * This is class OdataHelper which is very helpful
+     */
     var OdataHelper = (function () {
         function OdataHelper() {
             var _this = this;
             this.inlineCountProp = false;
+            /**
+             * this is the function that builds odata query urls
+             */
             this.buildQuery = function () {
                 // error if no url
                 if (_this.urlProp === null || _this.urlProp.length < 1) {

@@ -109,6 +109,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="docs.md" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="packages.config" />

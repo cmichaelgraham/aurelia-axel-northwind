@@ -9,7 +9,8 @@ gulp.task("typedoc", function () {
 		    module: "amd",
 		    target: "es5",
             experimentalDecorators: true,
-		    includeDeclarations: false,
+            includeDeclarations: true,
+            readme: "docs.md",
 
 		    // Output options (see typedoc docs) 
 		    out: "./docs",

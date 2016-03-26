@@ -4,6 +4,9 @@
     query?: string
 }
 
+/**
+ * This is class OdataHelper which is very helpful
+ */
 export class OdataHelper {
     private urlProp: string;
     private fromProp: string;
@@ -19,6 +22,9 @@ export class OdataHelper {
     constructor() {
     }
 
+    /**
+     * this is the function that builds odata query urls
+     */
     buildQuery = (): BuildQueryResult => {
         
         // error if no url
