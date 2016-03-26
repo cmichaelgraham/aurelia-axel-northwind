@@ -1,0 +1,298 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>aurelia-axel-northwind</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script src="assets/js/modernizr.js"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">aurelia-axel-northwind</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> aurelia-axel-northwind</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="aurelia-axel-northwind">aurelia-axel-northwind</h1>
+				<p>As a user, I want a walk through of creating a web app from the <code>aurelia-axel</code> starter kit, based of a familiar database (Northwind).  </p>
+				<h2 id="setup-your-environment">Setup Your Environment</h2>
+				<h3 id="sql-server">SQL Server</h3>
+				<ol>
+					<li>Install SQL Server</li>
+					<li>Download Northwind Database Backup</li>
+					<li>Restore Northwind Database</li>
+				</ol>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/13908165/ec072648-eec2-11e5-928c-1d054a1d7810.png" alt="image"></p>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/13908145/7e3df006-eec2-11e5-8ee6-170256b2b686.png" alt="image"></p>
+				<h3 id="prepare-visual-studio">Prepare Visual Studio</h3>
+				<p>If you don&#39;t alerady have it, grab yourself a copy of <a href="https://www.visualstudio.com/products/visual-studio-community-vs">Visual Studio - (free) Community Edition</a></p>
+				<h4 id="install-task-runner-explorer">Install Task Runner Explorer</h4>
+				<p>We are going to be using <code>gulp</code> for various build steps (which will be <code>tasks</code> in a <code>gulpfile.js</code>).  It is very convenient to be able to run these tasks from within Visual Studio.</p>
+				<p>Luckily, the brilliant <a href="http://madskristensen.net/">Mads Kristensen</a> is on the case and has provided (a separately installed) <a href="https://visualstudiogallery.msdn.microsoft.com/8e1b4368-4afb-467a-bc13-9650572db708">Task Runner Explorer</a> which can display and run <code>gulp</code> tasks from within Visual Studio.</p>
+				<p>You&#39;ll need Visual Studio for developing the server-side code.  This is only one path for server-side code, of course.</p>
+				<p>Once you have <code>Task Runner Explorer</code> installed, you can view it by choosing <code>View --&gt; Other Windows --&gt; Task Runner Explorer</code>:</p>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/14059201/e7a1bc9e-f2ff-11e5-80cd-6e22db1d1635.png" alt="image"></p>
+				<p>You will see something that looks like this:</p>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/14059208/39326996-f300-11e5-9b5a-2e0c4f806497.png" alt="image"></p>
+				<h2 id="get-started-with-data">Get Started With Data</h2>
+				<h3 id="copy-aurelia-axel">Copy aurelia-axel</h3>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/13908176/2f3e22c2-eec3-11e5-96e6-59d7d3c41d86.png" alt="image"></p>
+				<ol>
+					<li>Rename the folder: <code>aurelia-axel</code> :arrow_right: <code>aurelia-axel-northwind</code></li>
+					<li>Rename the solution file :arrow_right: <code>aurelia-axel-northwind.sln</code></li>
+					<li>Switch to the <code>aurelia-axel-northwind</code> folder</li>
+					<li>Rename the project file :arrow_right: <code>aurelia-axel-northwind.csproj</code></li>
+					<li>Switch back to the main folder</li>
+					<li>Open the solution in Visual Studio (run as administrator)</li>
+					<li>Right click the old project (which didn&#39;t load) and remove it from the solution.</li>
+					<li>Right click the solution and <code>add - existing project</code> and browse to the renamed project file</li>
+					<li>The project should load</li>
+				</ol>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/13908359/98e30640-eec6-11e5-8d14-5c654cd39036.png" alt="image"></p>
+				<h3 id="create-ef-model">Create EF Model</h3>
+				<ol>
+					<li><p>Create new empty project</p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908387/2bb9a7e4-eec7-11e5-85e5-574d230bec79.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908450/2864cb72-eec8-11e5-94e9-c6ea5d08efa2.png" alt="image"></p>
+					</li>
+					<li><p>Delete the (unhelpful) <code>Class1.cs</code></p>
+					</li>
+					<li><p>Add Entity Framework Model</p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908503/51e6cd78-eec9-11e5-92a1-1beb9c624322.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908535/d95d2126-eec9-11e5-9175-a326f97e9e64.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908540/0551ee38-eeca-11e5-93ea-6e90df1e9987.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908545/487351ac-eeca-11e5-9109-9a0e0841753d.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908559/95f173dc-eeca-11e5-9881-6dad13987da8.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908570/ccafa0b0-eeca-11e5-9a31-c7a634d84452.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908577/ece56860-eeca-11e5-9ab4-ecc6fda0085a.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908597/79fa5bf2-eecb-11e5-9072-dc0639795b73.png" alt="image"></p>
+					</li>
+					<li><p>Bask in the glory of your automatically created EF model !! :smile:</p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908626/3d35389e-eecc-11e5-9580-3cc942ae0176.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908628/565b1532-eecc-11e5-9eda-1cc6b3958c0c.png" alt="image"></p>
+					</li>
+				</ol>
+				<h3 id="create-odata-controller">Create OData Controller</h3>
+				<ol>
+					<li>Make sure you did a <code>rebuild</code> on the solution</li>
+					<li><p>Add a reference to the EF project</p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908688/a375c5e6-eecd-11e5-9977-991892a78a7b.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908700/e514e4aa-eecd-11e5-8130-1475838236a8.png" alt="image"></p>
+					</li>
+					<li><p>Add the connection string from the EF project&#39;s <code>app.config</code> to the web project&#39;s <code>web.config</code></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908718/3d95c0b8-eece-11e5-984b-f2fbef351524.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908731/99c5e8ea-eece-11e5-8897-c9c790032122.png" alt="image"></p>
+					</li>
+					<li><p>Add the OData controller</p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908754/3e23130e-eecf-11e5-863b-e660d93bf106.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908765/72ffc4b4-eecf-11e5-8fc8-a9adc9902a1a.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908774/9bab19fe-eecf-11e5-91f9-9fd3a578a44d.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908803/390ed000-eed0-11e5-8f79-40fdc6fbc0e1.png" alt="image"></p>
+					</li>
+					<li><p>Copy the <code>using</code> statements to the <code>WebApiConfig.cs</code> file</p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908791/f6d7230e-eecf-11e5-8906-1066f6d7d37e.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908807/6fe7f818-eed0-11e5-92ee-cc6cfe7c722f.png" alt="image"></p>
+					</li>
+					<li><p>Copy the OData code block to the <code>WebApiConfig.cs</code> file</p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908823/e03e4e46-eed0-11e5-8307-fc2095479103.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908830/2761f296-eed1-11e5-901e-7c13cb985eca.png" alt="image"></p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/13908870/f7e645b6-eed1-11e5-961a-fb2ffd6070da.png" alt="image"></p>
+					</li>
+					<li><p>Increase the Customer OData Controller&#39;s expand depth to 4 (from the default 2)</p>
+						<p> <img src="https://cloud.githubusercontent.com/assets/10272832/14044746/7dc157fe-f259-11e5-97c8-58e03f64fcd5.png" alt="image"></p>
+					</li>
+					<li><p>Rebuild and run in the browser</p>
+					</li>
+				</ol>
+				<h3 id="play-with-odata-urls">Play with OData URLs</h3>
+				<h4 id="the-odata-url-returns-a-catalog-of-the-available-collections">The <code>/odata</code> URL returns a catalog of the available collections</h4>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/13908951/2a527e10-eed3-11e5-9d6d-b8f564946dfb.png" alt="image"></p>
+				<h4 id="the-odata-metadata-url-returns-detailed-data-on-the-entities-and-their-properties">The <code>/odata/$metadata</code> URL returns detailed data on the Entities and their Properties</h4>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/13909167/95c6c9ca-eed4-11e5-8dfd-4f72faa40bb0.png" alt="image"></p>
+				<h4 id="it-is-easy-to-pull-back-the-first-5-customers-like-so-">It is easy to pull back the first 5 <code>Customers</code> like so:</h4>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/13909243/f0eb7422-eed4-11e5-8cb6-9e1d9d96efc9.png" alt="image"></p>
+				<h4 id="we-can-sort-by-customername-descending-like-this-">We can sort by <code>CustomerName</code> (descending) like this:</h4>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/14044420/2223b084-f256-11e5-8df5-f28a49bb98ed.png" alt="image"></p>
+				<h4 id="we-can-choose-to-select-only-the-data-of-interest-so-we-aren-t-clogging-up-our-network-with-data-that-don-t-want-">We can choose to select only the data of interest so we aren&#39;t clogging up our network with data that don&#39;t want:</h4>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/14045050/4909a478-f25c-11e5-8930-d12ebd8209c8.png" alt="image"></p>
+				<h4 id="we-can-get-a-specific-customer-by-the-customerid-like-this-">We can get a specific <code>Customer</code> by the <code>CustomerId</code> like this:</h4>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/14044853/5ba88452-f25a-11e5-93f6-122fcf7677b3.png" alt="image"></p>
+				<h4 id="or-we-can-search-for-customers-that-meet-a-specific-criteria-in-this-case-companyname-includes-the-string-fa-">Or we can search for <code>Customers</code> that meet a specific criteria, in this case, <code>CompanyName</code> includes the string <code>fa</code>:</h4>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/14045757/677c5134-f262-11e5-980a-e6752857ff2a.png" alt="image"></p>
+				<h4 id="things-get-really-interesting-when-we-use-expand-to-pull-back-child-data-also-here-we-see-the-customer-object-now-has-an-orders-property-that-is-an-array-of-order-objects-">Things get REALLY interesting when we use expand to pull back child data also.  Here we see the <code>Customer</code> object now has an <code>Orders</code> property that is an array of <code>Order</code> objects:</h4>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/14044912/d4b8f5fc-f25a-11e5-8665-38798d90be0d.png" alt="image"></p>
+				<h4 id="we-can-go-deep-on-the-expand-expression-expand-orders-orders-order_details-orders-order_details-product-">We can go deep on the expand expression (<code>$expand=Orders,Orders/Order_Details,Orders/Order_Details/Product</code>):</h4>
+				<p><img src="https://cloud.githubusercontent.com/assets/10272832/14044973/904ac43a-f25b-11e5-95a1-d11ec5e30011.png" alt="image"></p>
+				<h3 id="create-search-route-and-search-view">Create Search Route and Search View</h3>
+				<p>Phew, that&#39;s a lot of background.  Now lets put that odata url understanding to use and build a page that lets a user search for customers that match the information they enter into a search criteria page.</p>
+				<h3 id="create-search-criteria-view">Create Search Criteria View</h3>
+				<h3 id="create-search-results-view">Create Search Results View</h3>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_animation_main_.html">"animation-<wbr>main"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_.html">"app"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_blur_image_.html">"blur-<wbr>image"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_child_router_.html">"child-<wbr>router"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_esri_globe_.html">"esri-<wbr>globe"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_flickr_.html">"flickr"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_main_.html">"main"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_odata_odata_helper_.html">"odata/odata-<wbr>helper"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_odata_odata_service_.html">"odata/odata-<wbr>service"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_users_.html">"users"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_welcome_.html">"welcome"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

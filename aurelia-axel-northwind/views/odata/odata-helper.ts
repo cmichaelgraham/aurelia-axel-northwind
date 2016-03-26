@@ -5,16 +5,16 @@
 }
 
 export class OdataHelper {
-    urlProp: string;
-    fromProp: string;
-    filterProp: string;
-    selectProp: string;
-    orderByProp: string;
-    descProp: boolean;
-    skipProp: number;
-    takeProp: number;
-    inlineCountProp: boolean = false;
-    expandProp: string;
+    private urlProp: string;
+    private fromProp: string;
+    private filterProp: string;
+    private selectProp: string;
+    private orderByProp: string;
+    private descProp: boolean;
+    private skipProp: number;
+    private takeProp: number;
+    private inlineCountProp: boolean = false;
+    private expandProp: string;
 
     constructor() {
     }

@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="gulpfile.js" />
     <Content Include="packages.config" />
     <Content Include="scripts\core-js\client\core.min.js.map" />
     <Content Include="scripts\core-js\client\core.min.map" />
