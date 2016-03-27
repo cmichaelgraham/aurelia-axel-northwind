@@ -1,6 +1,6 @@
 define(["require", "exports"], function (require, exports) {
     /**
-     * This is class OdataHelper which is very helpful
+     * The OdataHelper provides a [fluent api](https://en.wikipedia.org/wiki/Fluent_interface) for constructing [odata urls](http://www.odata.org/documentation/odata-version-2-0/uri-conventions/)
      */
     var OdataHelper = (function () {
         function OdataHelper() {
