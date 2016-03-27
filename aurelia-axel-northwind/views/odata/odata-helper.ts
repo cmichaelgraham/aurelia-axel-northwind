@@ -1,6 +1,19 @@
-﻿interface BuildQueryResult {
+﻿/**
+ * The BuildQueryResult interface, defines the return from the [[OdataHelper]] [[buildQuery]] method.  the [[valid]] property indicates success or failure.  When [[buildQuery]]
+ * fails, the [[message]] property will indicate the cause of the failure.  When the [[buildQuery]] call succeeds, the [[query]] property will contain the odata query url.
+ */
+interface BuildQueryResult {
+    /**
+     * Indicates if the [[buildQuery]] call failed or succeeded.
+     */
     valid: boolean,
+    /**
+     * If the [[buildQuery]] call fails, the `message` property contains the error message.
+     */
     message?: string,
+    /**
+     * If the [[buildQuery]] call succeeds, the `query` property contains the odata query url.
+     */
     query?: string
 }
 
@@ -23,7 +36,8 @@ export class OdataHelper {
     }
 
     /**
-     * this is the function that builds odata query urls
+     * `buildQuery` is used once the fluent calls have been made (that provide the url, from, sort, filter, select, skip, take, and orderby odata query criteria).
+     * @returns returns a [[BuildQueryResult]] that holds the resulting odata url or the error message (if an error occured)
      */
     buildQuery = (): BuildQueryResult => {
         
