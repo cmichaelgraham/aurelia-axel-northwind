@@ -1,4 +1,5 @@
 # aurelia-axel-northwind
+
 As a user, I want a walk through of creating a web app from the `aurelia-axel` starter kit, based of a familiar database (Northwind).  
 
 ## Setup Your Environment
@@ -32,6 +33,46 @@ Once you have `Task Runner Explorer` installed, you can view it by choosing `Vie
 You will see something that looks like this:
 
 ![image](https://cloud.githubusercontent.com/assets/10272832/14059208/39326996-f300-11e5-9b5a-2e0c4f806497.png)
+
+### Generating Docs
+
+#### TypeScript Docs
+
+To generate the TypeScript Docs, bring up `Task Runner Explorer`, right click the `typedoc` task, and click `run`:
+
+![image](https://cloud.githubusercontent.com/assets/10272832/14064797/7840f166-f3cd-11e5-8ed8-516f1faf2ca3.png)
+
+If you want to inspect (or change) the typedoc config, look at [gulpfile.js](https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/gulpfile.js):
+
+The the generated docs include a main page that comes from [docs.md](https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/docs.md), which is a [markdown](https://daringfireball.net/projects/markdown/syntax) formatted document and can be edited as desired to provide doc content.
+
+```javascript
+var gulp = require("gulp");
+var typedoc = require("gulp-typedoc");
+
+gulp.task("typedoc", function () {
+    return gulp
+		.src(["views/**/*.ts", "typings/**/*.ts"])
+		.pipe(typedoc({
+		    // TypeScript options (see typescript docs) 
+		    module: "amd",
+		    target: "es5",
+            experimentalDecorators: true,
+            includeDeclarations: true,
+            readme: "docs.md",
+
+		    // Output options (see typedoc docs) 
+		    out: "./docs",
+		    json: "docs.json",
+
+		    // TypeDoc options (see typedoc docs) 
+		    name: "aurelia-axel-northwind",
+		    ignoreCompilerErrors: false,
+		    version: true
+		}))
+    ;
+});
+```
 
 ## Get Started With Data
 
@@ -170,8 +211,6 @@ You will see something that looks like this:
 ### Create Search Route and Search View
 
 Phew, that's a lot of background.  Now lets put that odata url understanding to use and build a page that lets a user search for customers that match the information they enter into a search criteria page.
-
-
 
 ### Create Search Criteria View
 
