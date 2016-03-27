@@ -7,7 +7,7 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
 ### SQL Server
 
 1. Install SQL Server
-2. Download Northwind Database Backup
+2. [Download Northwind Database Backup](https://northwinddatabase.codeplex.com/)
 3. Restore Northwind Database
 
 ![image](https://cloud.githubusercontent.com/assets/10272832/13908165/ec072648-eec2-11e5-928c-1d054a1d7810.png)
