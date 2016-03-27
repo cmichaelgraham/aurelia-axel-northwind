@@ -14,6 +14,8 @@ As a user, I want a walk through of creating a web app from the `aurelia-axel` s
     
         ![image](https://cloud.githubusercontent.com/assets/10272832/14064851/bdc05b76-f3cf-11e5-9e41-b8b3c323f6e9.png)
 
+Now you should have the Northwind database available.
+
 ![image](https://cloud.githubusercontent.com/assets/10272832/13908165/ec072648-eec2-11e5-928c-1d054a1d7810.png)
 
 ![image](https://cloud.githubusercontent.com/assets/10272832/13908145/7e3df006-eec2-11e5-8ee6-170256b2b686.png)
