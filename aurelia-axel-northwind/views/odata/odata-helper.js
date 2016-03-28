@@ -7,7 +7,8 @@ define(["require", "exports"], function (require, exports) {
             var _this = this;
             this.inlineCountProp = false;
             /**
-             * this is the function that builds odata query urls
+             * `buildQuery` is used once the fluent calls have been made (that provide the url, from, sort, filter, select, skip, take, and orderby odata query criteria).
+             * @returns returns a [[BuildQueryResult]] that holds the resulting odata url or the error message (if an error occured)
              */
             this.buildQuery = function () {
                 // error if no url
