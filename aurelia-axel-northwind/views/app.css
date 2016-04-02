@@ -1,0 +1,8 @@
+﻿body {
+  display: flex;
+}
+.page-host {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}

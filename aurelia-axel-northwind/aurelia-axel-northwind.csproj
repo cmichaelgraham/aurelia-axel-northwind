@@ -110,6 +110,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="docs.json" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="docs.md" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
@@ -134,6 +138,14 @@
     <Content Include="styles\fontawesome\fonts\fontawesome-webfont.woff" />
     <Content Include="styles\fontawesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="styles\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="views\app.css">
+      <DependentUpon>app.less</DependentUpon>
+    </Content>
+    <Content Include="views\app.less" />
+    <Content Include="views\search\search.css">
+      <DependentUpon>search.less</DependentUpon>
+    </Content>
+    <Content Include="views\search\search.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,6 +192,9 @@
     <Content Include="typings\dojo\dojo.d.js" />
     <Content Include="typings\esri\esri.d.js" />
     <Content Include="views\app.html" />
+    <Content Include="views\app.min.css">
+      <DependentUpon>app.css</DependentUpon>
+    </Content>
     <Content Include="views\child-router.html" />
     <Content Include="views\esri-globe.html" />
     <Content Include="views\flickr.html" />
@@ -188,6 +203,9 @@
     <Content Include="views\search\order\search-order.html" />
     <Content Include="views\search\product\search-product.html" />
     <Content Include="views\search\search.html" />
+    <Content Include="views\search\search.min.css">
+      <DependentUpon>search.css</DependentUpon>
+    </Content>
     <Content Include="views\users.html" />
     <Content Include="views\welcome.html" />
     <Content Include="Web.config" />

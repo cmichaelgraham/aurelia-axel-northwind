@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "views/app.css",
+    "inputFile": "views/app.less"
+  },
+  {
+    "outputFile": "views/search/search.css",
+    "inputFile": "views/search/search.less"
+  }
+]

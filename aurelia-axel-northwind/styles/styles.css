@@ -6,25 +6,6 @@ html, body {
     height: 100%;
 }
 
-.page-host {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50px;
-    bottom: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-#buttonsDiv {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    padding: 12px;
-    background-color: rgba(200, 200, 200, 0.5);
-    border: 1px solid black;
-}
-
 #indicatorSpan {
     display: inline-block;
     vertical-align: middle;
