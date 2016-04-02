@@ -234,3 +234,6 @@ Phew, that's a lot of background.  Now lets put that odata url understanding to 
 
 ### Create Search Results View
 
+## Notes
+
+1. When you add a `.less` file, right click it, choose `web compiler` - `compile`.
