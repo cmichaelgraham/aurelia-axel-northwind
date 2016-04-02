@@ -144,6 +144,12 @@
     <Content Include="views\app.less" />
     <Content Include="views\search\customer\search-customer-criteria.html" />
     <Content Include="views\search\customer\search-customer-results.html" />
+    <Content Include="views\search\customer\search-customer.css">
+      <DependentUpon>search-customer.less</DependentUpon>
+    </Content>
+    <Content Include="views\search\customer\search-customer.min.css">
+      <DependentUpon>search-customer.css</DependentUpon>
+    </Content>
     <Content Include="views\search\search.css">
       <DependentUpon>search.less</DependentUpon>
     </Content>

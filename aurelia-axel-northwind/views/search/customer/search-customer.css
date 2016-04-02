@@ -5,8 +5,10 @@
 }
 search-customer-criteria {
   background-color: orange;
+  margin: 20px;
 }
 search-customer-results {
   background-color: lawngreen;
   flex: 1;
+  margin: 20px 20px 20px 0;
 }

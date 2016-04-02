@@ -1,1 +1,1 @@
-﻿#search-customer{display:flex;flex-direction:row;flex:1;}search-customer-criteria{background-color:#ffa500;}search-customer-results{background-color:#7cfc00;flex:1;}
+﻿#search-customer{display:flex;flex-direction:row;flex:1;}search-customer-criteria{background-color:#ffa500;margin:20px;}search-customer-results{background-color:#7cfc00;flex:1;margin:20px 20px 20px 0;}
