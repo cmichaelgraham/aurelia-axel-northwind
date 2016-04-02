@@ -40,6 +40,18 @@ You will see something that looks like this:
 
 ![image](https://cloud.githubusercontent.com/assets/10272832/14059208/39326996-f300-11e5-9b5a-2e0c4f806497.png)
 
+#### Install Web Essentials
+
+[Web Essentials](https://visualstudiogallery.msdn.microsoft.com/ee6e6d8c-c837-41fb-886a-6b50ae2d06a2) (make sure you're getting the latest version).
+
+![image](https://cloud.githubusercontent.com/assets/10272832/14225827/1cb9c672-f88e-11e5-96a8-1bf3e4655260.png)
+
+#### Install Web Compiler
+
+[Web Compiler](https://visualstudiogallery.msdn.microsoft.com/3b329021-cd7a-4a01-86fc-714c2d05bb6c)
+
+![image](https://cloud.githubusercontent.com/assets/10272832/14225844/b920a0b2-f88e-11e5-9919-53c7590e4f6d.png)
+
 ### Generating Docs
 
 #### TypeScript Docs
