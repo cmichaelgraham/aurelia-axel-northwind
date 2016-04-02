@@ -260,6 +260,7 @@ search-customer-results {
 #### `search-customer.html`
 
 ```html
+<template>
     <div id="search-customer">
         <search-customer-criteria></search-customer-criteria>
         <search-customer-results></search-customer-results>
@@ -282,6 +283,7 @@ search-customer-results {
     <h3>Results</h3>
 </template>
 ```
+
 ### Create Search Criteria View
 
 ### Create Search Results View
