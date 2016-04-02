@@ -1,8 +1,8 @@
 ﻿<template>
     <require from="./search.css"></require>
     <div id="search">
-        <div id="search-menu">
-            <ul class="well nav nav-pills nav-stacked">
+        <div id="search-menu" class="navbar navbar-inverse">
+            <ul class="nav navbar-nav">
                 <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
                     <a href.bind="row.href">${row.title}</a>
                 </li>
