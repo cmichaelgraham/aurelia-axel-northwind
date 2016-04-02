@@ -109,6 +109,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="docs.json" />
     <None Include="docs.md" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
@@ -183,6 +184,7 @@
     <Content Include="views\esri-globe.html" />
     <Content Include="views\flickr.html" />
     <Content Include="views\nav-bar.html" />
+    <Content Include="views\search\search.html" />
     <Content Include="views\users.html" />
     <Content Include="views\welcome.html" />
     <Content Include="Web.config" />
@@ -244,6 +246,7 @@
     <TypeScriptCompile Include="views\main.ts" />
     <TypeScriptCompile Include="views\odata\odata-helper.ts" />
     <TypeScriptCompile Include="views\odata\odata-service.ts" />
+    <TypeScriptCompile Include="views\search\search.ts" />
     <TypeScriptCompile Include="views\users.ts" />
     <TypeScriptCompile Include="views\welcome.ts" />
   </ItemGroup>

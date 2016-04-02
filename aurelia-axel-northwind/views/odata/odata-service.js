@@ -13,9 +13,15 @@ define(["require", "exports", 'aurelia-framework', 'aurelia-fetch-client', './od
     var OdataService = (function () {
         function OdataService(http) {
             var _this = this;
+            /**
+             * `createOdataHelper` returns a new [[OdataHelper]] that can be used to construct an odata query
+             */
             this.createOdataHelper = function () {
                 return new odata_helper_1.OdataHelper();
             };
+            /**
+             * `execQuery` executes an odata query and returns a promise to provide an array of the resulting entities
+             */
             this.execQuery = function (odataHelper) {
                 return new Promise(function (resolve, reject) {
                     // get the odata url from the odata helper

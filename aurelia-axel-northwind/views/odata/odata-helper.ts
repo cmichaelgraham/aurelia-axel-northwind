@@ -92,47 +92,74 @@ export class OdataHelper {
         return { valid: true, query: query };
     }
 
+    /**
+     * `url` is used to provide the base url from which the odata query is based
+     */
     url = (url: string): OdataHelper => {
         this.urlProp = url;
         return this;
     }
 
+    /**
+     * `fromm` is used to provide the resource against which the odata query will be run
+     */
     fromm = (fromm: string): OdataHelper => {
         this.fromProp = fromm;
         return this;
     }
 
+    /**
+     * `filter` is used to restrict the results based on filter criteria.  odata filtering has a [rich syntax](http://www.odata.org/documentation/odata-version-2-0/uri-conventions/) (scroll down to section 4.5, `filters`)
+     */
     filter = (filter: string): OdataHelper => {
         this.filterProp = filter;
         return this;
     }
 
+    /**
+     * `select` is used to provide a comma-separated list of properties which restricts (filters out) data which isn't requied, increasing query efficiency and reducing required network bandwidth.
+     */
     select = (select: string): OdataHelper => {
         this.selectProp = select;
         return this;
     }
 
+    /**
+     * `orderBy` is used to specify the properties used to control (ascending (*default*) or descending) the sort order for the resulting entities 
+     */
     orderBy = (orderBy: string, desc?: boolean): OdataHelper => {
         this.orderByProp = orderBy;
         this.descProp = desc;
         return this;
     }
 
+    /**
+     * `skip` indicates how many entities to skip in the result set (these entities are not returned).  `skip` is typically used in conjunction with [[take]] to implement paging
+     */
     skip = (count: number): OdataHelper => {
         this.skipProp = count;
         return this;
     }
 
+    /**
+     * `take` indicates how many entities to return from the result set.  `take` actually translates to `$top` in the odata query.
+     */
     take = (count: number): OdataHelper => {
         this.takeProp = count;
         return this;
     }
 
+    /**
+     * `inlineCount` is used to request a property in the odata query result that indicates how many entities match the odata query.  This is typically used in paging to indicate how many rows are available.
+     */
     inlineCount = (): OdataHelper => {
         this.inlineCountProp = true;
         return this;
     }
 
+    /**
+     * `expand` is very powerful and is used to indicate related data to include in the result.  Typically this would be arrays of child, grandchild, ... data, returned in a nested hierarchy under the returned entities.
+     */
     expand = (expand: string): OdataHelper => {
         this.expandProp = expand;
         return this;

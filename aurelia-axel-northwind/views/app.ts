@@ -11,6 +11,7 @@ export class App {
         config.title = 'Aurelia';
         config.map([
             { route: ['', 'welcome'], name: 'welcome', moduleId: './welcome', nav: true, title: 'Welcome' },
+            { route: 'search', name: 'search', moduleId: './search/search', nav: true, title: 'Search' },
             { route: 'flickr', name: 'flickr', moduleId: './flickr', nav: true, title: 'Flickr' },
             { route: 'users', name: 'users', moduleId: './users', nav: true, title: 'Github Users' },
             { route: 'esri-globe', name: 'esri-globe', moduleId: './esri-globe', nav: true, title: 'ESRI Globe' },

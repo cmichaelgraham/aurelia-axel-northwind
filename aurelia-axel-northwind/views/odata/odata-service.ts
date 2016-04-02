@@ -3,6 +3,9 @@ import { HttpClient } from 'aurelia-fetch-client';
 import { OdataHelper } from './odata-helper';
 
 @inject(HttpClient)
+/**
+ * `OdataService` provides an [[OdataHelper]] factory to facilitate construction of odata queries and a matching method [[execQuery]] to run odata queries.
+ */
 export class OdataService {
     http: HttpClient;
 
@@ -10,10 +13,16 @@ export class OdataService {
         this.http = http;
     }
 
+    /**
+     * `createOdataHelper` returns a new [[OdataHelper]] that can be used to construct an odata query
+     */
     createOdataHelper = (): OdataHelper => {
         return new OdataHelper();
     }
 
+    /**
+     * `execQuery` executes an odata query and returns a promise to provide an array of the resulting entities
+     */
     execQuery = (odataHelper: OdataHelper): Promise<Array<any>> => {
 
         return new Promise<Array<any>>((resolve, reject) => {
