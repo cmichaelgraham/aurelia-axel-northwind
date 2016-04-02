@@ -6,5 +6,9 @@
   {
     "outputFile": "views/search/search.css",
     "inputFile": "views/search/search.less"
+  },
+  {
+    "outputFile": "views/search/customer/search-customer.css",
+    "inputFile": "views/search/customer/search-customer.less"
   }
 ]
