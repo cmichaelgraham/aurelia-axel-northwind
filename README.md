@@ -230,6 +230,58 @@ gulp.task("typedoc", function () {
 
 Phew, that's a lot of background.  Now lets put that odata url understanding to use and build a page that lets a user search for customers that match the information they enter into a search criteria page.
 
+### Using Flexbox Layout
+
+What follows is exquisite.
+
+![image](https://cloud.githubusercontent.com/assets/10272832/14226194/1e6ee47a-f898-11e5-9018-f1a765f992b3.png)
+
+#### `search-customer.less`
+
+```css
+#search-customer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+search-customer-criteria {
+    background-color: orange;
+    margin:20px;
+}
+
+search-customer-results {
+    background-color: lawngreen;
+    flex: 1;
+    margin: 20px 20px 20px 0;
+}
+```
+
+#### `search-customer.html`
+
+```html
+    <div id="search-customer">
+        <search-customer-criteria></search-customer-criteria>
+        <search-customer-results></search-customer-results>
+    </div>
+</template>
+```
+
+#### `search-customer-criteria.html`
+
+```html
+<template>
+    <h3>Customer Search</h3>
+</template>
+```
+
+#### `search-customer-results.html`
+
+```html
+<template>
+    <h3>Results</h3>
+</template>
+```
 ### Create Search Criteria View
 
 ### Create Search Results View
