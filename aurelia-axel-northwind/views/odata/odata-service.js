@@ -34,9 +34,9 @@ define(["require", "exports", 'aurelia-framework', 'aurelia-fetch-client', './od
                         .then(function (response) {
                         return response.json();
                     })
-                        .then(function (items) {
-                        resolve(items);
-                        return Promise.resolve(items);
+                        .then(function (result) {
+                        resolve(result.value);
+                        return Promise.resolve(result.value);
                     });
                 });
             };

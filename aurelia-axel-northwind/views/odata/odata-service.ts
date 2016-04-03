@@ -38,9 +38,9 @@ export class OdataService {
                 .then(response => {
                     return response.json();
                 })
-                .then(items => {
-                    resolve(items);
-                    return Promise.resolve(items);
+                .then(result => {
+                    resolve(result.value);
+                    return Promise.resolve(result.value);
                 });
         });
     }

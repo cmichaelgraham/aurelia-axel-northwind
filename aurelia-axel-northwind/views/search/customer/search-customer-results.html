@@ -1,3 +1,6 @@
-﻿<template>
-    <h3>Results</h3>
+﻿<template bindable="searchResults">
+    <h3>Results: ${searchResults.length}</h3>
+    <div repeat.for="customer of searchResults">
+        <h4>${customer.CompanyName}</h4>
+    </div>
 </template>
