@@ -290,4 +290,24 @@ search-customer-results {
 
 ## Notes
 
+### `.less` files
+
 1. When you add a `.less` file, right click it, choose `web compiler` - `compile`.
+
+### Aurelia `.d.ts` File Generation
+
+1. The Aurelia libraries contain ES6 / ES7 code that is transpiled by [the babel transpiler](http://babeljs.io/).
+2. The [ES6](http://www.ecma-international.org/ecma-262/6.0/) / [ES7](http://www.2ality.com/2016/01/ecmascript-2016.html) code in these libraries contains type annotations
+
+    > * [ContainerConfiguration interface](https://github.com/aurelia/dependency-injection/blob/master/src/container.js#L60-L65) type annotation in `aurelia-dependency-injection` library
+
+    > * [More Type Annotations](https://github.com/aurelia/dependency-injection/blob/master/src/container.js#L151-L163) in `aurelia-dependency-injection` library
+
+3. When the Aurelia library code is [built](https://github.com/aurelia/dependency-injection/blob/master/build/babel-options.js#L19-L25) (transpiled), a [babel plugin](https://babeljs.io/docs/plugins/) called [babel-dts-generator](https://github.com/YoloDev/babel-dts-generator) extracts the type annotations and the associated code comments and generates a [`.d.ts` TypeScript type definition file](https://github.com/aurelia/dependency-injection/blob/master/dist/aurelia-dependency-injection.d.ts).
+
+### Aurelia `api.json` File Generation
+
+> [Aurelia Reference Documentation](http://aurelia.io/docs.html#/aurelia/dependency-injection/1.0.0-beta.1.1.4/doc/api/overview) is provided by an Aurelia application that is driven by [api.json](https://github.com/aurelia/dependency-injection/blob/master/doc/api.json) files, also generated as part of the build and release process.
+
+1. The Aurelia libraries' `.d.ts` files are run through [TypeDoc](http://typedoc.io/) to [generate](https://github.com/aurelia/dependency-injection/blob/master/build/tasks/doc.js#L7-L19) a (large) `api.json` file which contains all of the type annotations in the Aurelia library being built as well as all the types from the dependent libraries.
+2. From this (large) `api.json` file, the type information (for just this library) [is extracted](https://github.com/aurelia/dependency-injection/blob/master/build/tasks/doc.js#L21-L25) to the release `api.json` file using the [Gulp TypeDoc Extractor](https://github.com/cmichaelgraham/gulp-typedoc-extractor#gulp-typedoc-extractor--)
