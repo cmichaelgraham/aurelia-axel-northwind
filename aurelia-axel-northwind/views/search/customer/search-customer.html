@@ -4,7 +4,15 @@
     <require from="./search-customer-results.html"></require>
 
     <div id="search-customer">
-        <search-customer-criteria></search-customer-criteria>
-        <search-customer-results></search-customer-results>
+        <search-customer-criteria 
+            search-criteria.bind="searchCriteria" 
+            run-search.bind="runSearch">
+        </search-customer-criteria>
+        <search-customer-results 
+            search-resutls.bind="searchResults">
+        </search-customer-results>
     </div>
+    <button click.trigger="runSearch()">
+        Run Search Test
+    </button>
 </template>
