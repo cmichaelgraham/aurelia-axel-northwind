@@ -303,7 +303,7 @@ search-customer-results {
 
     > * [More Type Annotations](https://github.com/aurelia/dependency-injection/blob/master/src/container.js#L151-L163) in `aurelia-dependency-injection` library
 
-3. When the Aurelia library code is [built](https://github.com/aurelia/dependency-injection/blob/master/build/babel-options.js#L19-L25) (transpiled), a [babel plugin](https://babeljs.io/docs/plugins/) called [babel-dts-generator](https://github.com/YoloDev/babel-dts-generator) extracts the type annotations and the associated code comments and generates a `.d.ts` TypeScript type definition file.
+3. When the Aurelia library code is [built](https://github.com/aurelia/dependency-injection/blob/master/build/babel-options.js#L19-L25) (transpiled), a [babel plugin](https://babeljs.io/docs/plugins/) called [babel-dts-generator](https://github.com/YoloDev/babel-dts-generator) extracts the type annotations and the associated code comments and generates a [`.d.ts` TypeScript type definition file](https://github.com/aurelia/dependency-injection/blob/master/dist/aurelia-dependency-injection.d.ts).
 
 ### Aurelia `api.json` File Generation
 
