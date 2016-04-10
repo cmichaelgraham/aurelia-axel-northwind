@@ -9,52 +9,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", 'aurelia-framework', '../../odata/odata-service'], function (require, exports, aurelia_framework_1, odata_service_1) {
+define(["require", "exports", 'aurelia-framework', './customer-data-source'], function (require, exports, aurelia_framework_1, customer_data_source_1) {
     var SearchCustomer = (function () {
-        function SearchCustomer(odataService) {
+        function SearchCustomer(customerDataSource) {
             var _this = this;
-            this.searchCriteria = {
-                CompanyName: 'Ab'
-            };
-            this.searchResults = [];
             this.runSearch = function () {
-                var me = _this;
-                return new Promise(function (resolve, reject) {
-                    var odataHelper = _this.odataService.createOdataHelper();
-                    odataHelper
-                        .url('odata')
-                        .fromm('Customers')
-                        .filter(_this.buildSearchFilter())
-                        .orderBy('CompanyName')
-                        .skip(0)
-                        .take(10);
-                    _this.odataService.execQuery(odataHelper)
-                        .then(function (result) {
-                        me.searchResults.splice(0, me.searchResults.length);
-                        result.forEach(function (customer) {
-                            me.searchResults.push(customer);
-                        });
-                        resolve(me.searchResults);
-                    })
-                        .catch(function (reason) {
-                        reject(reason);
-                    });
-                });
+                return _this.customerDataSource.config.fetch();
             };
-            if (!odataService) {
-                alert('odataService not defined...');
-            }
-            this.odataService = odataService;
+            this.customerDataSource = customerDataSource;
+            this.customerDataSource.config.fetch();
         }
-        SearchCustomer.prototype.buildSearchFilter = function () {
-            var result = [];
-            if (this.searchCriteria.CompanyName) {
-                result.push('substringof(\'' + this.searchCriteria.CompanyName + '\', CompanyName) eq true');
-            }
-            return result.join(' and ');
-        };
         SearchCustomer = __decorate([
-            aurelia_framework_1.inject(odata_service_1.OdataService), 
+            aurelia_framework_1.inject(customer_data_source_1.CustomerDataSource), 
             __metadata('design:paramtypes', [Object])
         ], SearchCustomer);
         return SearchCustomer;

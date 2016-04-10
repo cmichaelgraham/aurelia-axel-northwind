@@ -5,11 +5,11 @@
 
     <div id="search-customer">
         <search-customer-criteria 
-            search-criteria.bind="searchCriteria" 
+            search-criteria.bind="customerDataSource.searchCriteria" 
             run-search.bind="runSearch">
         </search-customer-criteria>
         <search-customer-results 
-            search-results.bind="searchResults">
+            search-results.bind="customerDataSource.pageData">
         </search-customer-results>
     </div>
     <button click.trigger="runSearch()">

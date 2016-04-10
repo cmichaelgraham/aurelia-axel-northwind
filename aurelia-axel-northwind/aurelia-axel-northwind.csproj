@@ -274,8 +274,11 @@
     <TypeScriptCompile Include="views\esri-globe.ts" />
     <TypeScriptCompile Include="views\flickr.ts" />
     <TypeScriptCompile Include="views\main.ts" />
+    <TypeScriptCompile Include="views\odata\odata-paged-data-source.ts" />
     <TypeScriptCompile Include="views\odata\odata-helper.ts" />
     <TypeScriptCompile Include="views\odata\odata-service.ts" />
+    <TypeScriptCompile Include="views\search\customer\customer-data-source.ts" />
+    <TypeScriptCompile Include="views\search\customer\search-customer-data.ts" />
     <TypeScriptCompile Include="views\search\customer\search-customer.ts" />
     <TypeScriptCompile Include="views\search\order\search-order.ts" />
     <TypeScriptCompile Include="views\search\product\search-product.ts" />
