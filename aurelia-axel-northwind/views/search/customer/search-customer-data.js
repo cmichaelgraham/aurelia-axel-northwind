@@ -28,7 +28,7 @@ define(["require", "exports", 'aurelia-framework', '../../odata/odata-service'],
                     _this.odataService.execQuery(odataHelper)
                         .then(function (result) {
                         me.searchResults.customers.splice(0, me.searchResults.customers.length);
-                        result.forEach(function (result) {
+                        result.value.forEach(function (result) {
                             me.searchResults.customers.push(result.value);
                         });
                         resolve(me.searchResults.customers);

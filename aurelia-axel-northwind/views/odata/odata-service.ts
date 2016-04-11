@@ -2,6 +2,14 @@
 import { HttpClient } from 'aurelia-fetch-client';
 import { OdataHelper } from './odata-helper';
 
+export interface IOdataResult {
+    odata: {
+        count: number;
+        metadata: string;
+    };
+    value: Array<any>;
+}
+
 @inject(HttpClient)
 /**
  * `OdataService` provides an [[OdataHelper]] factory to facilitate construction of odata queries and a matching method [[execQuery]] to run odata queries.
@@ -23,9 +31,9 @@ export class OdataService {
     /**
      * `execQuery` executes an odata query and returns a promise to provide an array of the resulting entities
      */
-    execQuery = (odataHelper: OdataHelper): Promise<Array<any>> => {
+    execQuery = (odataHelper: OdataHelper): Promise<IOdataResult> => {
 
-        return new Promise<Array<any>>((resolve, reject) => {
+        return new Promise<IOdataResult>((resolve, reject) => {
             // get the odata url from the odata helper
             let helperResult = odataHelper.buildQuery();
 
@@ -39,8 +47,8 @@ export class OdataService {
                     return response.json();
                 })
                 .then(result => {
-                    resolve(result);
-                    return Promise.resolve(result);
+                    resolve(<IOdataResult>result);
+                    return Promise.resolve(<IOdataResult>result);
                 });
         });
     }

@@ -60,10 +60,15 @@ export class CustomerDataSource extends OdataPagedDataSource<CustomerData, Custo
         ];
 
         return fields.map(
-            (field) =>
-                'substringof(\'' +
-                this.searchCriteria.CompanyName +
-                '\', CompanyName) eq true')
+            (field) => {
+                if (!this.searchCriteria[field]) {
+                    return '';
+                } else {
+                    return 'substringof(\'' +
+                    this.searchCriteria[field] +
+                    '\', ' + field + ') eq true'
+                }
+            })
             .filter((n: string) => !!n)
             .join(' and ');
     }

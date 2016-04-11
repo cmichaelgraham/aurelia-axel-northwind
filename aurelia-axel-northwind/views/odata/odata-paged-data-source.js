@@ -14,6 +14,7 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
         function OdataPagedDataSource(odataService) {
             var _this = this;
             this.config = new DataSourceConfig(this);
+            this.pageData = [];
             this.isBusy = false;
             this.isPageValid = false;
             this.fetchFirstPage = function () {
@@ -42,29 +43,31 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
                 if (_this.isBusy) {
                     throw new Error("Error - Can't fetch pages when busy.");
                 }
+                var that = _this;
                 var p = new Promise(function (resolve, reject) {
-                    if (_this.isPageValid && _this.currentPage == newPage) {
-                        resolve(_this.pageData);
+                    if (that.isPageValid && that.currentPage == newPage) {
+                        resolve(that.pageData);
                     }
                     else {
                         // todo: make sure we aren't asking for a page beyond the page count.  may require a fetch if we haven't yet received the page count.
-                        _this.currentPage = newPage;
-                        var odataHelper = _this.odataService.createOdataHelper();
+                        that.currentPage = newPage;
+                        var odataHelper = that.odataService.createOdataHelper();
                         odataHelper
-                            .url(_this.url)
-                            .fromm(_this.resourceName)
-                            .filter(_this.buildSearchFilter(_this.searchCriteria))
-                            .orderBy(_this.sortCriteria)
-                            .skip(_this.currentPage * _this.pageSize)
-                            .take(_this.pageSize)
+                            .url(that.url)
+                            .fromm(that.resourceName)
+                            .filter(that.buildSearchFilter(that.searchCriteria))
+                            .orderBy(that.sortCriteria)
+                            .skip(that.currentPage * that.pageSize)
+                            .take(that.pageSize)
                             .inlineCount();
-                        _this.odataService.execQuery(odataHelper)
+                        that.odataService.execQuery(odataHelper)
                             .then(function (result) {
-                            _this.pageData.splice(0, _this.pageData.length);
-                            result.forEach(function (result) {
-                                _this.pageData.push(result.data);
+                            that.pageData.splice(0, that.pageData.length);
+                            //for (let ii = 0; ii < result.value.length; ii++)
+                            result.value.forEach(function (item) {
+                                that.pageData.push(item);
                             });
-                            resolve(_this.pageData);
+                            resolve(that.pageData);
                         })
                             .catch(function (reason) {
                             reject(reason);

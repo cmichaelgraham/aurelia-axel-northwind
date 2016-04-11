@@ -39,9 +39,14 @@ define(["require", "exports", 'aurelia-framework', '../../odata/odata-service', 
                     'Country'
                 ];
                 return fields.map(function (field) {
-                    return 'substringof(\'' +
-                        _this.searchCriteria.CompanyName +
-                        '\', CompanyName) eq true';
+                    if (!_this.searchCriteria[field]) {
+                        return '';
+                    }
+                    else {
+                        return 'substringof(\'' +
+                            _this.searchCriteria[field] +
+                            '\', ' + field + ') eq true';
+                    }
                 })
                     .filter(function (n) { return !!n; })
                     .join(' and ');

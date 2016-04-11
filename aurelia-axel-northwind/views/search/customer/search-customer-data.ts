@@ -34,7 +34,7 @@ export class SearchCustomerData {
                 .then(
                     (result) => {
                         me.searchResults.customers.splice(0, me.searchResults.customers.length);
-                        result.forEach(
+                        result.value.forEach(
                             (result) => {
                                 me.searchResults.customers.push(result.value);
                             });

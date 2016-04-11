@@ -55,7 +55,7 @@ export class OdataPagedDataSource<EntityType, CriteriaType> implements IPagedDat
     currentPage: number;
     pageCount: number;
     itemCount: number;
-    pageData: Array<EntityType>;
+    pageData: Array<EntityType> = [];
 
     isBusy: boolean = false;
     busyMessage: string;
@@ -86,32 +86,34 @@ export class OdataPagedDataSource<EntityType, CriteriaType> implements IPagedDat
             throw new Error("Error - Can't fetch pages when busy.");
         }
 
+        let that = this;
+
         let p = new Promise<Array<EntityType>>((resolve, reject) => {
-            if (this.isPageValid && this.currentPage == newPage) {
-                resolve(this.pageData);
+            if (that.isPageValid && that.currentPage == newPage) {
+                resolve(that.pageData);
             } else {
                 // todo: make sure we aren't asking for a page beyond the page count.  may require a fetch if we haven't yet received the page count.
-                this.currentPage = newPage;
+                that.currentPage = newPage;
 
-                let odataHelper = this.odataService.createOdataHelper();
+                let odataHelper = that.odataService.createOdataHelper();
                 odataHelper
-                    .url(this.url)
-                    .fromm(this.resourceName)
-                    .filter(this.buildSearchFilter(this.searchCriteria))
-                    .orderBy(this.sortCriteria)
-                    .skip(this.currentPage * this.pageSize)
-                    .take(this.pageSize)
+                    .url(that.url)
+                    .fromm(that.resourceName)
+                    .filter(that.buildSearchFilter(that.searchCriteria))
+                    .orderBy(that.sortCriteria)
+                    .skip(that.currentPage * that.pageSize)
+                    .take(that.pageSize)
                     .inlineCount();
 
-                this.odataService.execQuery(odataHelper)
+                that.odataService.execQuery(odataHelper)
                     .then(
                         (result) => {
-                            this.pageData.splice(0, this.pageData.length);
-                            result.forEach(
-                                (result) => {
-                                    this.pageData.push(result.data);
-                                });
-                            resolve(this.pageData);
+                            that.pageData.splice(0, that.pageData.length);
+                            //for (let ii = 0; ii < result.value.length; ii++)
+                            result.value.forEach((item) => {
+                                that.pageData.push(item);
+                            });
+                            resolve(that.pageData);
                         })
                     .catch((reason) => {
                         reject(reason);
