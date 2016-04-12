@@ -1,0 +1,8 @@
+﻿<template bindable="dataSource">
+    <div>
+        <button click.delegate="dataSource.fetchFirstPage()" class="btn ${dataSource.firstPage ? 'disabled' : ''}">first</button>
+        <button click.delegate="dataSource.fetchPreviousPage()" class="btn ${dataSource.firstPage ? 'disabled' : ''}">prev</button>
+        <button click.delegate="dataSource.fetchNextPage()" class="btn ${dataSource.lastPage ? 'disabled' : ''}">next</button>
+        <button click.delegate="dataSource.fetchLastPage()" class="btn ${dataSource.lastPage ? 'disabled' : ''}">last</button>
+    </div>
+</template>

@@ -9,10 +9,7 @@
             run-search.bind="runSearch">
         </search-customer-criteria>
         <search-customer-results 
-            search-results.bind="customerDataSource.pageData">
+            data-source.bind="customerDataSource">
         </search-customer-results>
     </div>
-    <button click.trigger="runSearch()">
-        Run Search Test
-    </button>
 </template>

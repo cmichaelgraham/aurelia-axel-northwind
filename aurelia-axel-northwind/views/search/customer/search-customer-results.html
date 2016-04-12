@@ -1,6 +1,33 @@
-﻿<template bindable="searchResults">
-    <h3>Results: ${searchResults.length}</h3>
-    <div repeat.for="customer of searchResults">
-        <h4>${customer.CompanyName}</h4>
+﻿<template bindable="dataSource">
+    <require from="../../pager/pager.html"></require>
+
+    <h3 class="search-customer-results-header">Results: ${dataSource.pageData.length} / Items: ${dataSource.itemCount} / Pages: ${dataSource.pageCount}</h3>
+
+    <div class="search-customer-results-body">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>Company Name</th>
+                <th>Contact Name</th>
+                <th>Contact Title</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Region</th>
+                <th>Country</th>
+                <th>Details</th>
+            </tr>
+            <tr repeat.for="customer of dataSource.pageData">
+                <td>${customer.CompanyName}</td>
+                <td>${customer.ContactName}</td>
+                <td>${customer.ContactTitle}</td>
+                <td>${customer.Address}</td>
+                <td>${customer.City}</td>
+                <td>${customer.Region}</td>
+                <td>${customer.Country}</td>
+                <td><a class="btn btn-primary btn-xs">Details</a></td>
+            </tr>
+        </table>
     </div>
+
+    <pager class="search-customer-results-footer" data-source.bind="dataSource"></pager>
+
 </template>

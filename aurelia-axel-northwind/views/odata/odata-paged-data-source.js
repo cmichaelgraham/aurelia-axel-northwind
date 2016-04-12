@@ -29,7 +29,7 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
                 }
             };
             this.fetchNextPage = function () {
-                if (_this.currentPage < _this.pageCount - 1) {
+                if (_this.currentPage + 1 < _this.pageCount) {
                     return _this.fetchPage(_this.currentPage + 1);
                 }
                 else {
@@ -37,7 +37,7 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
                 }
             };
             this.fetchLastPage = function () {
-                return _this.fetchPage(_this.pageCount);
+                return _this.fetchPage(_this.pageCount - 1);
             };
             this.fetchPage = function (newPage) {
                 if (_this.isBusy) {
@@ -67,6 +67,9 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
                             result.value.forEach(function (item) {
                                 that.pageData.push(item);
                             });
+                            that.itemCount = result['odata.count'];
+                            that.pageCount = Math.floor(that.itemCount / that.pageSize) + 1;
+                            that.isPageValid = true;
                             resolve(that.pageData);
                         })
                             .catch(function (reason) {
@@ -79,14 +82,32 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
             this.buildSearchFilter = function (criteria) {
                 throw new Error("Error in OdataPagedDataSource: buildSearchFilter is an abstract function.  You must implement an override in your derived class");
             };
-            this.isFirstPage = function () {
-                return _this.isPageValid && _this.currentPage == 0;
-            };
-            this.isLastPage = function () {
-                return _this.isPageValid && _this.currentPage == _this.pageCount;
-            };
             this.odataService = odataService;
         }
+        Object.defineProperty(OdataPagedDataSource.prototype, "firstPage", {
+            get: function () {
+                return this.isPageValid && this.currentPage == 0;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(OdataPagedDataSource.prototype, "lastPage", {
+            get: function () {
+                return this.isPageValid && this.currentPage == this.pageCount - 1;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(OdataPagedDataSource.prototype, "firstPage",
+            __decorate([
+                aurelia_framework_1.computedFrom('isPageValid', 'currentPage'), 
+                __metadata('design:type', Object)
+            ], OdataPagedDataSource.prototype, "firstPage", Object.getOwnPropertyDescriptor(OdataPagedDataSource.prototype, "firstPage")));
+        Object.defineProperty(OdataPagedDataSource.prototype, "lastPage",
+            __decorate([
+                aurelia_framework_1.computedFrom('isPageValid', 'currentPage'), 
+                __metadata('design:type', Object)
+            ], OdataPagedDataSource.prototype, "lastPage", Object.getOwnPropertyDescriptor(OdataPagedDataSource.prototype, "lastPage")));
         OdataPagedDataSource = __decorate([
             aurelia_framework_1.inject(odata_service_1.OdataService), 
             __metadata('design:paramtypes', [Object])
@@ -118,6 +139,7 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
                 return _this;
             };
             this.fetch = function () {
+                _this.pagedDataSource.isPageValid = false;
                 return _this.pagedDataSource.fetchFirstPage();
             };
             this.pagedDataSource = pagedDataSource;

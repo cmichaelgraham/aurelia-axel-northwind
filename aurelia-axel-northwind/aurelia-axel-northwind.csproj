@@ -142,6 +142,7 @@
       <DependentUpon>app.less</DependentUpon>
     </Content>
     <Content Include="views\app.less" />
+    <Content Include="views\pager\pager.html" />
     <Content Include="views\search\customer\search-customer-criteria.html" />
     <Content Include="views\search\customer\search-customer-results.html" />
     <Content Include="views\search\customer\search-customer.css">
@@ -278,7 +279,6 @@
     <TypeScriptCompile Include="views\odata\odata-helper.ts" />
     <TypeScriptCompile Include="views\odata\odata-service.ts" />
     <TypeScriptCompile Include="views\search\customer\customer-data-source.ts" />
-    <TypeScriptCompile Include="views\search\customer\search-customer-data.ts" />
     <TypeScriptCompile Include="views\search\customer\search-customer.ts" />
     <TypeScriptCompile Include="views\search\order\search-order.ts" />
     <TypeScriptCompile Include="views\search\product\search-product.ts" />

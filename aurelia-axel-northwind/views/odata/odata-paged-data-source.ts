@@ -1,4 +1,4 @@
-﻿import {inject} from 'aurelia-framework';
+﻿import {inject, computedFrom} from 'aurelia-framework';
 import {OdataService} from './odata-service';
 
 
@@ -15,6 +15,7 @@ export interface IPagedDataSource<EntityType, CriteriaType> {
     pageCount: number;
     itemCount: number;
     pageData: Array<EntityType>;
+    isPageValid: boolean;
 
     fetchFirstPage: () => Promise<Array<EntityType>>;
     fetchPreviousPage: () => Promise<Array<EntityType>>;
@@ -22,8 +23,8 @@ export interface IPagedDataSource<EntityType, CriteriaType> {
     fetchLastPage: () => Promise<Array<EntityType>>;
     fetchPage: (number) => Promise<Array<EntityType>>;
 
-    isFirstPage: () => boolean;
-    isLastPage: () => boolean;
+    firstPage: boolean;
+    lastPage: boolean;
 }
 
 export interface IDataSourceConfig<EntityType, CriteriaType> {
@@ -72,14 +73,14 @@ export class OdataPagedDataSource<EntityType, CriteriaType> implements IPagedDat
         }
     }
     fetchNextPage = () => {
-        if (this.currentPage < this.pageCount - 1) {
+        if (this.currentPage + 1 < this.pageCount) {
             return this.fetchPage(this.currentPage + 1);
         } else {
             return this.fetchLastPage();
         }
     }
     fetchLastPage = () => {
-        return this.fetchPage(this.pageCount);
+        return this.fetchPage(this.pageCount - 1);
     }
     fetchPage = (newPage) => {
         if (this.isBusy) {
@@ -113,6 +114,9 @@ export class OdataPagedDataSource<EntityType, CriteriaType> implements IPagedDat
                             result.value.forEach((item) => {
                                 that.pageData.push(item);
                             });
+                            that.itemCount = result['odata.count'];
+                            that.pageCount = Math.floor(that.itemCount / that.pageSize) + 1;
+                            that.isPageValid = true;
                             resolve(that.pageData);
                         })
                     .catch((reason) => {
@@ -129,11 +133,14 @@ export class OdataPagedDataSource<EntityType, CriteriaType> implements IPagedDat
         throw new Error("Error in OdataPagedDataSource: buildSearchFilter is an abstract function.  You must implement an override in your derived class");
     }
 
-    isFirstPage = () => {
+    @computedFrom('isPageValid','currentPage')
+    get firstPage() {
         return this.isPageValid && this.currentPage == 0;
     }
-    isLastPage = () => {
-        return this.isPageValid && this.currentPage == this.pageCount;
+
+    @computedFrom('isPageValid', 'currentPage')
+    get lastPage() {
+        return this.isPageValid && this.currentPage == this.pageCount - 1;
     }
 
 }
@@ -165,6 +172,7 @@ export class DataSourceConfig<EntityType, CriteriaType> implements DataSourceCon
         return this;
     }
     fetch = () => {
+        this.pagedDataSource.isPageValid = false;
         return this.pagedDataSource.fetchFirstPage();
     }
 }

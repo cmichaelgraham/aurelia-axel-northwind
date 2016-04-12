@@ -3,10 +3,8 @@ import { HttpClient } from 'aurelia-fetch-client';
 import { OdataHelper } from './odata-helper';
 
 export interface IOdataResult {
-    odata: {
-        count: number;
-        metadata: string;
-    };
+    "odata.count": number;
+    "odata.metadata": string;
     value: Array<any>;
 }
 
