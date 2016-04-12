@@ -47,6 +47,7 @@ search-customer-results {
   display: flex;
   flex-direction: row;
   flex: 0 0 none;
+  padding: 3px 0 0 0;
 }
 .search-customer-results-body > div:last-child > div > div {
   flex: 1;
