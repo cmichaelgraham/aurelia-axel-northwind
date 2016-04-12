@@ -4,28 +4,28 @@
     <h3 class="search-customer-results-header">Results: ${dataSource.pageData.length} / Items: ${dataSource.itemCount} / Pages: ${dataSource.pageCount}</h3>
 
     <div class="search-customer-results-body">
-        <table class="table table-striped table-hover">
-            <tr>
-                <th>Company Name</th>
-                <th>Contact Name</th>
-                <th>Contact Title</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>Region</th>
-                <th>Country</th>
-                <th>Details</th>
-            </tr>
-            <tr repeat.for="customer of dataSource.pageData">
-                <td>${customer.CompanyName}</td>
-                <td>${customer.ContactName}</td>
-                <td>${customer.ContactTitle}</td>
-                <td>${customer.Address}</td>
-                <td>${customer.City}</td>
-                <td>${customer.Region}</td>
-                <td>${customer.Country}</td>
-                <td><a class="btn btn-primary btn-xs">Details</a></td>
-            </tr>
-        </table>
+        <div>
+            <div class="bg-primary">Company Name</div>
+            <div class="bg-primary">Contact Name</div>
+            <div class="bg-primary">Contact Title</div>
+            <div class="bg-primary">Address</div>
+            <div class="bg-primary">City</div>
+            <div class="bg-primary">Region</div>
+            <div class="bg-primary">Country</div>
+            <div class="bg-primary">Details</div>
+        </div>
+        <div>
+            <div repeat.for="customer of dataSource.pageData">
+                <div>${customer.CompanyName}</div>
+                <div>${customer.ContactName}</div>
+                <div>${customer.ContactTitle}</div>
+                <div>${customer.Address}</div>
+                <div>${customer.City}</div>
+                <div>${customer.Region}</div>
+                <div>${customer.Coundivy}</div>
+                <div><a class="btn btn-primary btn-xs">Details</a></div>
+            </div>
+        </div>
     </div>
 
     <pager class="search-customer-results-footer" data-source.bind="dataSource"></pager>
