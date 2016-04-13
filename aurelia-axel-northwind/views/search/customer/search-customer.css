@@ -29,35 +29,35 @@ search-customer-results {
   overflow-x: hidden;
 }
 .search-customer-results-body > div:first-child > div {
-  flex: 1;
+  flex: 1 1 0;
   white-space: nowrap;
   text-wrap: none;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .search-customer-results-body > div:first-child > div:nth-child(1) {
-  flex: 3;
+  flex: 3 3 0;
 }
 .search-customer-results-body > div:last-child {
-  flex: 1 0 none;
+  flex: 1 1 auto;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 .search-customer-results-body > div:last-child > div {
   display: flex;
   flex-direction: row;
-  flex: 0 0 none;
+  flex: 0 0 auto;
   padding: 3px 0 0 0;
 }
 .search-customer-results-body > div:last-child > div > div {
-  flex: 1;
+  flex: 1 1 0;
   white-space: nowrap;
   text-wrap: none;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .search-customer-results-body > div:last-child > div > div:nth-child(1) {
-  flex: 3;
+  flex: 3 3 0;
 }
 .search-customer-results-footer {
   margin: 10px 0 0 0;
