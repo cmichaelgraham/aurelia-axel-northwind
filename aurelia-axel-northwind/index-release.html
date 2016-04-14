@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="https://js.arcgis.com/4.0beta3/esri/css/main.css">
 
+    <script src="//cdn.jsdelivr.net/bluebird/3.3.5/bluebird.min.js"></script>
+
     <script type="text/javascript">
         var origin = window.location.origin;
         var pathname = window.location.pathname;
@@ -21,10 +23,8 @@
             parseOnLoad: true,
             paths: {
                 aurelia: baseUrl + "/scripts/aurelia",
-                webcomponentsjs: baseUrl + "/scripts/webcomponentsjs",
                 views: baseUrl + "/views",
                 underscore: baseUrl + "/scripts/underscore/underscore.min",
-                'core-js': baseUrl + "/scripts/core-js/client/core.min"
             },
             shim: {
                 underscore: {

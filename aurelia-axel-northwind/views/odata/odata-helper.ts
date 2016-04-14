@@ -9,6 +9,12 @@ interface BuildQueryResult {
     valid: boolean,
     /**
      * If the [[buildQuery]] call fails, the `message` property contains the error message.
+     * 
+     * ```javascript
+     * var x = 7;
+     * // a comment
+     * 
+     * ```
      */
     message?: string,
     /**

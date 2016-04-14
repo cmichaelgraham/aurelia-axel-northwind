@@ -18,18 +18,21 @@ html, body {
 .splash {
     text-align: center;
     margin: 10% 0 0 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
     .splash .message {
         font-size: 72px;
         line-height: 72px;
+        -ms-text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
         text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
         text-transform: uppercase;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
-    .splash .fa-spinner {
+.splash .fa-spinner {
         text-align: center;
         display: inline-block;
         font-size: 72px;
@@ -73,21 +76,29 @@ section {
 /* animate page transitions */
 section.au-enter-active {
     -webkit-animation: fadeInRight 1s;
+    -moz-animation: fadeInRight 1s;
+    -o-animation: fadeInRight 1s;
     animation: fadeInRight 1s;
 }
 
 div.au-stagger {
     /* 50ms will be applied between each successive enter operation */
     -webkit-animation-delay: 50ms;
+    -moz-animation-delay: 50ms;
+    -o-animation-delay: 50ms;
     animation-delay: 50ms;
 }
 
 .card-container.au-enter {
+    -ms-opacity: 0 !important;
     opacity: 0 !important;
 }
 
 .card-container.au-enter-active {
     -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
     animation: fadeIn 2s;
 }
 
@@ -95,26 +106,30 @@ div.au-stagger {
     overflow: hidden;
     position: relative;
     border: 1px solid #CCC;
+    -ms-border-radius: 8px;
     border-radius: 8px;
     text-align: center;
     padding: 0;
     background-color: #337ab7;
     color: rgb(136, 172, 217);
     margin-bottom: 32px;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    -ms-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
     box-shadow: 0 0 5px rgba(0, 0, 0, .5);
 }
 
-    .card .content {
+.card .content {
         margin-top: 10px;
     }
 
         .card .content .name {
             color: white;
+            -ms-text-shadow: 0 0 6px rgba(0, 0, 0, .5);
             text-shadow: 0 0 6px rgba(0, 0, 0, .5);
             font-size: 18px;
         }
 
-    .card .header-bg {
+.card .header-bg {
         /* This stretches the canvas across the entire hero unit */
         position: absolute;
         top: 0;
@@ -151,6 +166,26 @@ div.au-stagger {
     100% {
         opacity: 1;
         -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@-moz-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        -ms-transform: translate3d(100%, 0, 0);
+        -moz-transform: translate3d(100%, 0, 0);
+        -o-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        -ms-transform: none;
+        -moz-transform: none;
+        -o-transform: none;
         transform: none;
     }
 }

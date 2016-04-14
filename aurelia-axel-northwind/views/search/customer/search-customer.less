@@ -1,18 +1,28 @@
 ﻿#search-customer {
     display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
     flex-direction: row;
+    -ms-flex: 1;
+    -webkit-flex: 1;
     flex: 1;
 }
 
 search-customer-criteria {
     display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column;
     margin: 20px;
 }
 
 search-customer-results {
     display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -ms-flex: 1;
+    -webkit-flex: 1;
     flex: 1;
     margin: 20px 20px 20px 0;
 }
@@ -22,12 +32,20 @@ search-customer-results {
 
 .search-customer-results-body {
     display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -ms-flex: 1;
+    -webkit-flex: 1;
     flex: 1;
 
     > div:first-child {
         display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
         flex-direction: row;
+        -ms-flex: 0 0 none;
+        -webkit-flex: 0 0 none;
         flex: 0 0 none;
         margin: 0 0 10px 0;
         min-height: 24px;
@@ -35,38 +53,56 @@ search-customer-results {
         overflow-x: hidden;
 
         > div {
+            -ms-flex: 1 1 0;
+            -webkit-flex: 1 1 0;
             flex: 1 1 0;
             white-space: nowrap;
             text-wrap: none;
             overflow: hidden;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
             text-overflow: ellipsis;
         }
 
         > div:nth-child(1) {
+            -ms-flex: 3 3 0;
+            -webkit-flex: 3 3 0;
             flex: 3 3 0;
         }
     }
 
     > div:last-child {
+        -ms-flex: 1 1 auto;
+        -webkit-flex: 1 1 auto;
         flex: 1 1 auto;
         overflow-y: scroll;
         overflow-x: hidden;
 
         > div {
             display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
             flex-direction: row;
+            -ms-flex: 0 0 auto;
+            -webkit-flex: 0 0 auto;
             flex: 0 0 auto;
             padding: 3px 0 0 0;
 
             > div {
+                -ms-flex: 1 1 0;
+                -webkit-flex: 1 1 0;
                 flex: 1 1 0;
                 white-space: nowrap;
                 text-wrap: none;
                 overflow: hidden;
+                -ms-text-overflow: ellipsis;
+                -o-text-overflow: ellipsis;
                 text-overflow: ellipsis;
             }
 
             > div:nth-child(1) {
+                -ms-flex: 3 3 0;
+                -webkit-flex: 3 3 0;
                 flex: 3 3 0;
             }
         }
@@ -83,7 +119,11 @@ search-customer-results {
 
 .search-customer-criteria-body {
     display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
     flex-direction: column;
+    -ms-flex: 1;
+    -webkit-flex: 1;
     flex: 1;
     overflow: auto;
     border: 1px solid silver;
