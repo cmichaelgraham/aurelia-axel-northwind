@@ -116,7 +116,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/views/odata/odata-service.ts#L7">odata/odata-service.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/views/odata/odata-service.ts#L16">odata/odata-service.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -138,7 +138,7 @@
 					<div class="tsd-signature tsd-kind-icon">http<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HttpClient</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/views/odata/odata-service.ts#L7">odata/odata-service.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/views/odata/odata-service.ts#L16">odata/odata-service.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -155,9 +155,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/views/odata/odata-service.ts#L13">odata/odata-service.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/views/odata/odata-service.ts#L25">odata/odata-service.ts:25</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>createOdataHelper</code> returns a new <a href="_odata_odata_helper_.odatahelper.html">OdataHelper</a> that can be used to construct an odata query</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_odata_odata_helper_.odatahelper.html" class="tsd-signature-type">OdataHelper</a></h4>
 						</li>
 					</ul>
@@ -166,22 +171,27 @@
 					<a name="execquery" class="tsd-anchor"></a>
 					<h3>exec<wbr>Query</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">exec<wbr>Query<span class="tsd-signature-symbol">(</span>odataHelper<span class="tsd-signature-symbol">: </span><a href="_odata_odata_helper_.odatahelper.html" class="tsd-signature-type">OdataHelper</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">exec<wbr>Query<span class="tsd-signature-symbol">(</span>odataHelper<span class="tsd-signature-symbol">: </span><a href="_odata_odata_helper_.odatahelper.html" class="tsd-signature-type">OdataHelper</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_odata_odata_service_.iodataresult.html" class="tsd-signature-type">IOdataResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/views/odata/odata-service.ts#L17">odata/odata-service.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/cmichaelgraham/aurelia-axel-northwind/blob/master/aurelia-axel-northwind/views/odata/odata-service.ts#L32">odata/odata-service.ts:32</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>execQuery</code> executes an odata query and returns a promise to provide an array of the resulting entities</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>odataHelper: <a href="_odata_odata_helper_.odatahelper.html" class="tsd-signature-type">OdataHelper</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_odata_odata_service_.iodataresult.html" class="tsd-signature-type">IOdataResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -217,8 +227,26 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_odata_odata_helper_.html">"odata/odata-<wbr>helper"</a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_odata_odata_paged_data_source_.html">"odata/odata-<wbr>paged-<wbr>data-<wbr>source"</a>
+					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="../modules/_odata_odata_service_.html">"odata/odata-<wbr>service"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_search_customer_customer_data_source_.html">"search/customer/customer-<wbr>data-<wbr>source"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_search_customer_search_customer_.html">"search/customer/search-<wbr>customer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_search_order_search_order_.html">"search/order/search-<wbr>order"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_search_product_search_product_.html">"search/product/search-<wbr>product"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_search_search_.html">"search/search"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_users_.html">"users"</a>
@@ -251,6 +279,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_odata_odata_service_.iodataresult.html" class="tsd-kind-icon">IOdata<wbr>Result</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

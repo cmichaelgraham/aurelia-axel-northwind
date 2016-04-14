@@ -6,7 +6,7 @@ interface BuildQueryResult {
     /**
      * Indicates if the [[buildQuery]] call failed or succeeded.
      */
-    valid: boolean,
+    valid: boolean;
     /**
      * If the [[buildQuery]] call fails, the `message` property contains the error message.
      * 
@@ -16,11 +16,11 @@ interface BuildQueryResult {
      * 
      * ```
      */
-    message?: string,
+    message?: string;
     /**
      * If the [[buildQuery]] call succeeds, the `query` property contains the odata query url.
      */
-    query?: string
+    query?: string;
 }
 
 /**
