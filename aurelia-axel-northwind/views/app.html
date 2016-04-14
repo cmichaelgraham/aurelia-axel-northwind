@@ -4,11 +4,12 @@
 
     <nav-bar router.bind="router"></nav-bar>
 
+    <div id="globe" class="page-host"
+         css="visibility: ${mapVisible ? 'visible' : 'hidden'};">
+    </div>
+
     <div class="page-host" show.bind="!mapVisible">
         <router-view></router-view>
     </div>
 
-    <div id="globe" class="page-host" 
-         style="visibility: ${mapVisible ? 'visible' : 'hidden'}">
-    </div>
 </template>

@@ -13,6 +13,11 @@ define(["require", "exports", 'aurelia-framework'], function (require, exports, 
             this.mapVisible = false;
             this.mapInitialized = false;
         }
+        Object.defineProperty(App.prototype, "mapVisibility", {
+            get: function () { return this.mapVisible ? 'visible' : 'hidden'; },
+            enumerable: true,
+            configurable: true
+        });
         App.prototype.configureRouter = function (config, router) {
             config.title = 'Aurelia';
             config.map([

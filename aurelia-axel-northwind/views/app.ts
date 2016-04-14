@@ -7,6 +7,8 @@ export class App {
     mapVisible: boolean = false;
     mapInitialized: boolean = false;
 
+    get mapVisibility() { return this.mapVisible ? 'visible' : 'hidden'; }
+
     configureRouter(config, router: Router) {
         config.title = 'Aurelia';
         config.map([
