@@ -194,7 +194,13 @@
       <DependentUpon>app.less</DependentUpon>
     </Content>
     <Content Include="views\app.less" />
+    <Content Include="views\pager\pager.css">
+      <DependentUpon>pager.less</DependentUpon>
+    </Content>
     <Content Include="views\pager\pager.html" />
+    <Content Include="views\pager\pager.min.css">
+      <DependentUpon>pager.css</DependentUpon>
+    </Content>
     <Content Include="views\search\customer\search-customer-criteria.html" />
     <Content Include="views\search\customer\search-customer-results.html" />
     <Content Include="views\search\customer\search-customer.css">
@@ -337,6 +343,7 @@
     <Content Include="scripts\bluebird\README.md" />
     <Content Include="scripts\bluebird\tests" />
     <Content Include="scripts\bluebird\tools\README.md" />
+    <Content Include="views\pager\pager.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

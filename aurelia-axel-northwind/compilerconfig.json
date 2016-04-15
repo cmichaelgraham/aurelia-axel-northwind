@@ -10,5 +10,9 @@
   {
     "outputFile": "views/search/customer/search-customer.css",
     "inputFile": "views/search/customer/search-customer.less"
+  },
+  {
+    "outputFile": "views/pager/pager.css",
+    "inputFile": "views/pager/pager.less"
   }
 ]

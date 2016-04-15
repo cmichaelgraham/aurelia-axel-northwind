@@ -1,8 +1,10 @@
 ﻿<template bindable="dataSource">
+    <require from="./pager.css"></require>
     <div>
-        <button click.delegate="dataSource.fetchFirstPage()" class="btn ${dataSource.firstPage ? 'disabled' : ''}">first</button>
-        <button click.delegate="dataSource.fetchPreviousPage()" class="btn ${dataSource.firstPage ? 'disabled' : ''}">prev</button>
-        <button click.delegate="dataSource.fetchNextPage()" class="btn ${dataSource.lastPage ? 'disabled' : ''}">next</button>
-        <button click.delegate="dataSource.fetchLastPage()" class="btn ${dataSource.lastPage ? 'disabled' : ''}">last</button>
+        <i click.delegate="dataSource.fetchFirstPage()" class="vcr-button ${dataSource.firstPage ? 'vcr-button-disabled' : 'vcr-button-enabled'} fa fa-step-backward fa-border fa-2x"></i>
+        <i click.delegate="dataSource.fetchPreviousPage()" class="vcr-button ${dataSource.firstPage ? 'vcr-button-disabled' : 'vcr-button-enabled'} fa fa-caret-left fa-border fa-2x"></i>
+        <span>Page ${dataSource.currentPage + 1} of ${dataSource.pageCount}</span>&nbsp;&nbsp;
+        <i click.delegate="dataSource.fetchNextPage()" class="vcr-button ${dataSource.lastPage ? 'vcr-button-disabled' : 'vcr-button-enabled'} fa fa-caret-right fa-border fa-2x"></i>
+        <i click.delegate="dataSource.fetchLastPage()" class="vcr-button ${dataSource.lastPage ? 'vcr-button-disabled' : 'vcr-button-enabled'} fa fa-step-forward fa-border fa-2x"></i>
     </div>
 </template>

@@ -73,8 +73,8 @@ export class OdataPagedDataSource<EntityType, CriteriaType> implements IPagedDat
         }
     }
     fetchNextPage = () => {
-        if (this.currentPage + 1 < this.pageCount) {
-            return this.fetchPage(this.currentPage + 1);
+        if (Number(this.currentPage) + 1 < this.pageCount) {
+            return this.fetchPage(Number(this.currentPage) + 1);
         } else {
             return this.fetchLastPage();
         }

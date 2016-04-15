@@ -27,8 +27,8 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
                 }
             };
             this.fetchNextPage = function () {
-                if (_this.currentPage + 1 < _this.pageCount) {
-                    return _this.fetchPage(_this.currentPage + 1);
+                if (Number(_this.currentPage) + 1 < _this.pageCount) {
+                    return _this.fetchPage(Number(_this.currentPage) + 1);
                 }
                 else {
                     return _this.fetchLastPage();
