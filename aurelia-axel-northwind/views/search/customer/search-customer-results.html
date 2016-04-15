@@ -1,7 +1,7 @@
 ﻿<template bindable="dataSource">
     <require from="../../pager/pager.html"></require>
 
-    <h3 class="search-customer-results-header">Results: ${dataSource.pageData.length} / Items: ${dataSource.itemCount} / Pages: ${dataSource.pageCount}</h3>
+    <h3 class="search-customer-results-header">${dataSource.itemCount} Customers</h3>
 
     <div class="search-customer-results-body">
         <div>
@@ -23,7 +23,7 @@
                 <div>${customer.City}</div>
                 <div>${customer.Region}</div>
                 <div>${customer.Coundivy}</div>
-                <div><a class="btn btn-primary btn-xs">Details</a></div>
+                <div><i class="fa fa-info-circle fa-2x"></i></div>
             </div>
         </div>
     </div>
