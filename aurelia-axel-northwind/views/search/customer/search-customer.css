@@ -64,9 +64,9 @@ search-customer-results {
   flex: 3 3;
 }
 .search-customer-results-body > div:first-child > div:last-child {
-  -ms-flex: 0 0 auto;
-  -webkit-flex: 0 0 auto;
-  flex: 0 0 auto;
+  -ms-flex: 0 0 70px;
+  -webkit-flex: 0 0 70px;
+  flex: 0 0 70px;
 }
 .search-customer-results-body > div:last-child {
   -ms-flex: 1 1 auto;
@@ -103,9 +103,9 @@ search-customer-results {
   flex: 3 3;
 }
 .search-customer-results-body > div:last-child > div > div:last-child {
-  -ms-flex: 0 0 auto;
-  -webkit-flex: 0 0 auto;
-  flex: 0 0 auto;
+  -ms-flex: 0 0 70px;
+  -webkit-flex: 0 0 70px;
+  flex: 0 0 70px;
 }
 .search-customer-results-footer {
   margin: 10px 0 0 0;
