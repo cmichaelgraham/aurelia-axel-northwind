@@ -3,9 +3,9 @@
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
-  -ms-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+  -ms-flex: 1 1;
+  -webkit-flex: 1 1;
+  flex: 1 1;
 }
 search-customer-criteria {
   display: flex;
@@ -13,38 +13,51 @@ search-customer-criteria {
   -webkit-flex-direction: column;
   flex-direction: column;
   margin: 20px;
+  -ms-flex: 0 0 300px;
+  -webkit-flex: 0 0 300px;
+  flex: 0 0 300px;
 }
 search-customer-results {
   display: flex;
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-  -ms-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+  -ms-flex: 1 1;
+  -webkit-flex: 1 1;
+  flex: 1 1;
   margin: 20px 20px 20px 0;
+  overflow: hidden;
+}
+.search-customer-results-header {
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  white-space: nowrap;
+  text-wrap: none;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex: 0 0 auto;
 }
 .search-customer-results-body {
   display: flex;
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-  -ms-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+  -ms-flex: 1 1;
+  -webkit-flex: 1 1;
+  flex: 1 1;
 }
 .search-customer-results-body > div:first-child {
   display: flex;
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
-  -ms-flex: 0 0 none;
-  -webkit-flex: 0 0 none;
-  flex: 0 0 none;
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
   margin: 0 0 10px 0;
-  min-height: 24px;
   overflow-y: scroll;
-  overflow-x: hidden;
 }
 .search-customer-results-body > div:first-child > div {
   padding: 0 5px;
@@ -53,36 +66,36 @@ search-customer-results {
   flex: 1 1;
   white-space: nowrap;
   text-wrap: none;
-  overflow: hidden;
   -ms-text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
+  overflow: hidden;
+  width: 1px;
 }
-.search-customer-results-body > div:first-child > div:nth-child(1) {
+.search-customer-results-body > div:first-child > div:nth-child(2) {
   -ms-flex: 3 3;
   -webkit-flex: 3 3;
   flex: 3 3;
 }
-.search-customer-results-body > div:first-child > div:last-child {
+.search-customer-results-body > div:first-child > div:nth-child(1) {
   -ms-flex: 0 0 40px;
   -webkit-flex: 0 0 40px;
   flex: 0 0 40px;
 }
 .search-customer-results-body > div:last-child {
-  -ms-flex: 1 1 auto;
-  -webkit-flex: 1 1 auto;
-  flex: 1 1 auto;
+  -ms-flex: 1 1;
+  -webkit-flex: 1 1;
+  flex: 1 1;
   overflow-y: scroll;
-  overflow-x: hidden;
 }
 .search-customer-results-body > div:last-child > div {
   display: flex;
   -ms-flex-direction: row;
   -webkit-flex-direction: row;
   flex-direction: row;
-  -ms-flex: 0 0;
-  -webkit-flex: 0 0;
-  flex: 0 0;
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
   padding: 3px 0 0 0;
 }
 .search-customer-results-body > div:last-child > div > div {
@@ -92,38 +105,54 @@ search-customer-results {
   flex: 1 1;
   white-space: nowrap;
   text-wrap: none;
-  overflow: hidden;
   -ms-text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
+  overflow: hidden;
+  width: 1px;
 }
-.search-customer-results-body > div:last-child > div > div:nth-child(1) {
+.search-customer-results-body > div:last-child > div > div:nth-child(2) {
   -ms-flex: 3 3;
   -webkit-flex: 3 3;
   flex: 3 3;
 }
-.search-customer-results-body > div:last-child > div > div:last-child {
+.search-customer-results-body > div:last-child > div > div:nth-child(1) {
   -ms-flex: 0 0 40px;
   -webkit-flex: 0 0 40px;
   flex: 0 0 40px;
 }
 .search-customer-results-footer {
   margin: 10px 0 0 0;
-  min-height: 35px;
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+.search-customer-criteria-header {
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  text-wrap: none;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .search-customer-criteria-body {
   display: flex;
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column;
-  -ms-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
+  -ms-flex: 1 1;
+  -webkit-flex: 1 1;
+  flex: 1 1;
   overflow: auto;
   border: 1px solid silver;
   padding: 6px;
 }
 .search-customer-criteria-footer {
   margin: 10px 0 0 0;
-  min-height: 35px;
+  -ms-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
 }

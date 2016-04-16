@@ -5,6 +5,7 @@
 
     <div class="search-customer-results-body">
         <div>
+            <div class="bg-primary"></div>
             <div class="bg-primary">Company Name</div>
             <div class="bg-primary">Contact Name</div>
             <div class="bg-primary">Contact Title</div>
@@ -12,10 +13,10 @@
             <div class="bg-primary">City</div>
             <div class="bg-primary">Region</div>
             <div class="bg-primary">Country</div>
-            <div class="bg-primary"></div>
         </div>
         <div>
             <div repeat.for="customer of dataSource.pageData">
+                <div><i class="fa fa-info-circle fa-2x"></i></div>
                 <div>${customer.CompanyName}</div>
                 <div>${customer.ContactName}</div>
                 <div>${customer.ContactTitle}</div>
@@ -23,7 +24,6 @@
                 <div>${customer.City}</div>
                 <div>${customer.Region}</div>
                 <div>${customer.Coundivy}</div>
-                <div><i class="fa fa-info-circle fa-2x"></i></div>
             </div>
         </div>
     </div>
