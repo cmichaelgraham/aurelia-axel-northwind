@@ -8,6 +8,7 @@ export interface IPagedDataSource<EntityType, CriteriaType> {
     resourceName: string;
     sortCriteria: string;
     pageSize: number;
+    pageSizes: Array<number>;
     searchCriteria: CriteriaType;
     url: string;
 
@@ -49,7 +50,8 @@ export class OdataPagedDataSource<EntityType, CriteriaType> implements IPagedDat
 
     sortCriteria: string;
     resourceName: string;
-    pageSize: number;
+    pageSize: number = 10;
+    pageSizes: Array<number> = [5, 10, 20, 100, 1000];
     searchCriteria: CriteriaType;
     url: string;
 

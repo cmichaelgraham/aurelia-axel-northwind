@@ -12,6 +12,8 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
         function OdataPagedDataSource(odataService) {
             var _this = this;
             this.config = new DataSourceConfig(this);
+            this.pageSize = 10;
+            this.pageSizes = [5, 10, 20, 100, 1000];
             this.pageData = [];
             this.isBusy = false;
             this.isPageValid = false;

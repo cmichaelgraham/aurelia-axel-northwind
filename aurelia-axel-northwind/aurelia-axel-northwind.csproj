@@ -453,6 +453,7 @@
     <TypeScriptCompile Include="views\search\order\search-order.ts" />
     <TypeScriptCompile Include="views\search\product\search-product.ts" />
     <TypeScriptCompile Include="views\search\search.ts" />
+    <TypeScriptCompile Include="views\shell\shell.ts" />
     <TypeScriptCompile Include="views\users.ts" />
     <TypeScriptCompile Include="views\welcome.ts" />
   </ItemGroup>
