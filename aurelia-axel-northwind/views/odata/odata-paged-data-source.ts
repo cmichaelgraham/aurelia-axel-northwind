@@ -1,9 +1,11 @@
-﻿import {inject, computedFrom} from 'aurelia-framework';
-import {OdataService} from './odata-service';
-
+﻿import { inject, computedFrom } from 'aurelia-framework';
+import { OdataService } from './odata-service';
+import { ILiteEvent, LiteEvent } from '../liteEvent/lite-event';
 
 export interface IPagedDataSource<EntityType, CriteriaType> {
     config: IDataSourceConfig<EntityType, CriteriaType>;
+
+    pageLoaded: ILiteEvent<void>;
 
     resourceName: string;
     sortCriteria: string;
@@ -40,6 +42,9 @@ export interface IDataSourceConfig<EntityType, CriteriaType> {
 
 @inject(OdataService)
 export class OdataPagedDataSource<EntityType, CriteriaType> implements IPagedDataSource<EntityType, CriteriaType> {
+    private onPageLoaded = new LiteEvent<void>();
+    public get pageLoaded(): ILiteEvent<void> { return this.onPageLoaded; }
+
     odataService: OdataService;
 
     constructor(odataService) {
@@ -120,6 +125,7 @@ export class OdataPagedDataSource<EntityType, CriteriaType> implements IPagedDat
                             that.pageCount = Math.floor(that.itemCount / that.pageSize) + 1;
                             that.isPageValid = true;
                             resolve(that.pageData);
+                            that.onPageLoaded.trigger();
                         })
                     .catch((reason) => {
                         reject(reason);

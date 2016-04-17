@@ -7,10 +7,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", 'aurelia-framework', './odata-service'], function (require, exports, aurelia_framework_1, odata_service_1) {
+define(["require", "exports", 'aurelia-framework', './odata-service', '../liteEvent/lite-event'], function (require, exports, aurelia_framework_1, odata_service_1, lite_event_1) {
     var OdataPagedDataSource = (function () {
         function OdataPagedDataSource(odataService) {
             var _this = this;
+            this.onPageLoaded = new lite_event_1.LiteEvent();
             this.config = new DataSourceConfig(this);
             this.pageSize = 10;
             this.pageSizes = [5, 10, 20, 100, 1000];
@@ -71,6 +72,7 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
                             that.pageCount = Math.floor(that.itemCount / that.pageSize) + 1;
                             that.isPageValid = true;
                             resolve(that.pageData);
+                            that.onPageLoaded.trigger();
                         })
                             .catch(function (reason) {
                             reject(reason);
@@ -84,6 +86,11 @@ define(["require", "exports", 'aurelia-framework', './odata-service'], function 
             };
             this.odataService = odataService;
         }
+        Object.defineProperty(OdataPagedDataSource.prototype, "pageLoaded", {
+            get: function () { return this.onPageLoaded; },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(OdataPagedDataSource.prototype, "firstPage", {
             get: function () {
                 return this.isPageValid && this.currentPage == 0;

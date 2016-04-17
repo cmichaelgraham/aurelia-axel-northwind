@@ -1,4 +1,4 @@
-﻿<template bindable="dataSource">
+﻿<template>
     <require from="../../pager/pager.html"></require>
 
     <h3 class="search-customer-results-header">${dataSource.itemCount} Customers</h3>
@@ -14,7 +14,7 @@
             <div class="bg-primary">Region</div>
             <div class="bg-primary">Country</div>
         </div>
-        <div>
+        <div ref="gridBody">
             <div repeat.for="customer of dataSource.pageData">
                 <div><i class="fa fa-info-circle fa-2x"></i></div>
                 <div>${customer.CompanyName}</div>
