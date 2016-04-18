@@ -8,7 +8,7 @@
         <i click.delegate="dataSource.fetchNextPage()" class="vcr-button ${dataSource.lastPage ? 'vcr-button-disabled' : 'vcr-button-enabled'} fa fa-angle-right fa-border fa-2x"></i>
         <i click.delegate="dataSource.fetchLastPage()" class="vcr-button ${dataSource.lastPage ? 'vcr-button-disabled' : 'vcr-button-enabled'} fa fa-angle-double-right fa-border fa-2x"></i>
         <select value.bind="dataSource.pageSize | number" change.trigger="dataSource.config.fetch()">
-            <option repeat.for="pgsz of dataSource.pageSizes" value.bind="pgsz | number" selected="${pgsz == dataSource.pageSize ? 'true' : 'false'}">${pgsz} per page</option>
+            <option repeat.for="pgsz of dataSource.pageSizes" value.bind="pgsz | number">${pgsz} per page</option>
         </select>
     </div>
 </template>
