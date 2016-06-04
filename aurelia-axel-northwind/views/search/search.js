@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Search = (function () {
         function Search() {
             this.heading = 'Search';
@@ -12,7 +13,7 @@ define(["require", "exports"], function (require, exports) {
             this.router = router;
         };
         return Search;
-    })();
+    }());
     exports.Search = Search;
 });
 //# sourceMappingURL=search.js.map

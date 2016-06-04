@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 define(["require", "exports", 'aurelia-framework'], function (require, exports, aurelia_framework_1) {
+    "use strict";
     var BlurImageCustomAttribute = (function () {
         function BlurImageCustomAttribute(element) {
             this.element = element;
@@ -26,7 +27,7 @@ define(["require", "exports", 'aurelia-framework'], function (require, exports, 
             __metadata('design:paramtypes', [Object])
         ], BlurImageCustomAttribute);
         return BlurImageCustomAttribute;
-    })();
+    }());
     exports.BlurImageCustomAttribute = BlurImageCustomAttribute;
     /*
     This Snippet is using a modified Stack Blur js lib for blurring the header images.

@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 define(["require", "exports", 'aurelia-framework', './app', "esri/Map", "esri/views/SceneView", "esri/layers/ArcGISDynamicLayer"], function (require, exports, aurelia_framework_1, app_1, EMap, SceneView, ArcGISDynamicLayer) {
+    "use strict";
     var EsriGlobe = (function () {
         function EsriGlobe(app) {
             this.app = app;
@@ -42,7 +43,7 @@ define(["require", "exports", 'aurelia-framework', './app', "esri/Map", "esri/vi
             __metadata('design:paramtypes', [app_1.App])
         ], EsriGlobe);
         return EsriGlobe;
-    })();
+    }());
     exports.EsriGlobe = EsriGlobe;
 });
 //# sourceMappingURL=esri-globe.js.map

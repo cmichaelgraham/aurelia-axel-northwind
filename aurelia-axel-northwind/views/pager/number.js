@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var NumberValueConverter = (function () {
         function NumberValueConverter() {
         }
@@ -9,7 +10,7 @@ define(["require", "exports"], function (require, exports) {
             return Number(s);
         };
         return NumberValueConverter;
-    })();
+    }());
     exports.NumberValueConverter = NumberValueConverter;
 });
 //# sourceMappingURL=number.js.map

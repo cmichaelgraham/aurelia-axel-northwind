@@ -1,11 +1,33 @@
 declare module 'aurelia-templating-router' {
   import * as LogManager from 'aurelia-logging';
-  import { customAttribute, bindable, ViewSlot, ViewLocator, customElement, noView, BehaviorInstruction, CompositionEngine }  from 'aurelia-templating';
-  import { inject, Container }  from 'aurelia-dependency-injection';
-  import { Router, RouteLoader, AppRouter }  from 'aurelia-router';
-  import { DOM }  from 'aurelia-pal';
-  import { Origin }  from 'aurelia-metadata';
-  import { relativeToFile }  from 'aurelia-path';
+  import {
+    customAttribute,
+    bindable,
+    ViewSlot,
+    ViewLocator,
+    customElement,
+    noView,
+    BehaviorInstruction,
+    CompositionTransaction,
+    CompositionEngine
+  } from 'aurelia-templating';
+  import {
+    inject,
+    Container
+  } from 'aurelia-dependency-injection';
+  import {
+    Router,
+    RouteLoader
+  } from 'aurelia-router';
+  import {
+    DOM
+  } from 'aurelia-pal';
+  import {
+    Origin
+  } from 'aurelia-metadata';
+  import {
+    relativeToFile
+  } from 'aurelia-path';
   export class RouteHref {
     constructor(router: any, element: any);
     bind(): any;
@@ -15,8 +37,9 @@ declare module 'aurelia-templating-router' {
   }
   export class RouterView {
     swapOrder: any;
-    constructor(element: any, container: any, viewSlot: any, router: any, viewLocator: any);
-    bind(bindingContext: any): any;
+    constructor(element: any, container: any, viewSlot: any, router: any, viewLocator: any, compositionTransaction: any);
+    created(owningView: any): any;
+    bind(bindingContext: any, overrideContext: any): any;
     process(viewPortInstruction: any, waitToSwap: any): any;
     swap(viewPortInstruction: any): any;
   }

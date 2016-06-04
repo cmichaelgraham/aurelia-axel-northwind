@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 define(["require", "exports", 'aurelia-framework', './odata-service', '../liteEvent/lite-event'], function (require, exports, aurelia_framework_1, odata_service_1, lite_event_1) {
+    "use strict";
     var OdataPagedDataSource = (function () {
         function OdataPagedDataSource(odataService) {
             var _this = this;
@@ -118,7 +119,7 @@ define(["require", "exports", 'aurelia-framework', './odata-service', '../liteEv
             __metadata('design:paramtypes', [Object])
         ], OdataPagedDataSource);
         return OdataPagedDataSource;
-    })();
+    }());
     exports.OdataPagedDataSource = OdataPagedDataSource;
     var DataSourceConfig = (function () {
         function DataSourceConfig(pagedDataSource) {
@@ -150,7 +151,7 @@ define(["require", "exports", 'aurelia-framework', './odata-service', '../liteEv
             this.pagedDataSource = pagedDataSource;
         }
         return DataSourceConfig;
-    })();
+    }());
     exports.DataSourceConfig = DataSourceConfig;
 });
 //# sourceMappingURL=odata-paged-data-source.js.map

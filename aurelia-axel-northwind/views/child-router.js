@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var ChildRouter = (function () {
         function ChildRouter() {
             this.heading = 'Child Router';
@@ -12,7 +13,7 @@ define(["require", "exports"], function (require, exports) {
             this.router = router;
         };
         return ChildRouter;
-    })();
+    }());
     exports.ChildRouter = ChildRouter;
 });
 //# sourceMappingURL=child-router.js.map

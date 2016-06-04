@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 define(["require", "exports", 'aurelia-framework', 'aurelia-http-client'], function (require, exports, aurelia_framework_1, aurelia_http_client_1) {
+    "use strict";
     var Flickr = (function () {
         function Flickr(http) {
             this.heading = 'Flickr';
@@ -29,7 +30,7 @@ define(["require", "exports", 'aurelia-framework', 'aurelia-http-client'], funct
             __metadata('design:paramtypes', [aurelia_http_client_1.HttpClient])
         ], Flickr);
         return Flickr;
-    })();
+    }());
     exports.Flickr = Flickr;
 });
 //# sourceMappingURL=flickr.js.map

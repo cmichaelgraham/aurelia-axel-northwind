@@ -1,7 +1,10 @@
 declare module 'aurelia-loader' {
-  import 'core-js';
-  import { relativeToFile }  from 'aurelia-path';
-  import { Origin }  from 'aurelia-metadata';
+  import {
+    relativeToFile
+  } from 'aurelia-path';
+  import {
+    Origin
+  } from 'aurelia-metadata';
   
   /*eslint no-unused-vars:0*/
   /**
@@ -97,6 +100,9 @@ declare module 'aurelia-loader' {
   /**
   * A generic resource loader, for loading modules, html, css and more.
   */
+  /**
+  * A generic resource loader, for loading modules, html, css and more.
+  */
   export class Loader {
     
     /**
@@ -118,6 +124,14 @@ declare module 'aurelia-loader' {
       * @return The normalized module id.
       */
     normalizeSync(moduleId: string, relativeTo: string): string;
+    
+    /**
+      * Normalizes a module id.
+      * @param moduleId The module id to normalize.
+      * @param relativeTo What the module id should be normalized relative to.
+      * @return A promise for the normalized module id.
+      */
+    normalize(moduleId: string, relativeTo: string): Promise<string>;
     
     /**
       * Loads a module.

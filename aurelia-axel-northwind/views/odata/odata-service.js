@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 define(["require", "exports", 'aurelia-framework', 'aurelia-fetch-client', './odata-helper'], function (require, exports, aurelia_framework_1, aurelia_fetch_client_1, odata_helper_1) {
+    "use strict";
     var OdataService = (function () {
         function OdataService(http) {
             var _this = this;
@@ -45,7 +46,7 @@ define(["require", "exports", 'aurelia-framework', 'aurelia-fetch-client', './od
             __metadata('design:paramtypes', [aurelia_fetch_client_1.HttpClient])
         ], OdataService);
         return OdataService;
-    })();
+    }());
     exports.OdataService = OdataService;
 });
 //# sourceMappingURL=odata-service.js.map

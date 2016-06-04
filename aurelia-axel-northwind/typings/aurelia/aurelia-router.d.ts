@@ -1,11 +1,48 @@
 declare module 'aurelia-router' {
-  import 'core-js';
   import * as LogManager from 'aurelia-logging';
-  import { Container }  from 'aurelia-dependency-injection';
-  import { RouteRecognizer }  from 'aurelia-route-recognizer';
-  import { History }  from 'aurelia-history';
-  import { EventAggregator }  from 'aurelia-event-aggregator';
+  import {
+    RouteRecognizer
+  } from 'aurelia-route-recognizer';
+  import {
+    Container
+  } from 'aurelia-dependency-injection';
+  import {
+    History
+  } from 'aurelia-history';
+  import {
+    EventAggregator
+  } from 'aurelia-event-aggregator';
   
+  /**
+  * A callback to indicate when pipeline processing should advance to the next step
+  * or be aborted.
+  */
+  export interface Next {
+    
+    /**
+      * Indicates the successful completion of the entire pipeline.
+      */
+    complete(result: any): Promise<any>;
+    
+    /**
+      * Indicates that the pipeline should cancel processing.
+      */
+    cancel(result: any): Promise<any>;
+    
+    /**
+      * Indicates that pipeline processing has failed and should be stopped.
+      */
+    reject(result: any): Promise<any>;
+    
+    /**
+      * Indicates the successful completion of the pipeline step.
+      */
+    (): Promise<any>;
+  }
+  
+  /**
+  * A step to be run during processing of the pipeline.
+  */
   /**
   * A step to be run during processing of the pipeline.
   */
@@ -18,9 +55,12 @@ declare module 'aurelia-router' {
        * @param instruction The navigation instruction.
        * @param next The next step in the pipeline.
        */
-    run(instruction: NavigationInstruction, next: Function): void;
+    run(instruction: NavigationInstruction, next: Next): void;
   }
   
+  /**
+  * The result of a pipeline run.
+  */
   /**
   * The result of a pipeline run.
   */
@@ -39,6 +79,7 @@ declare module 'aurelia-router' {
     parentInstruction: NavigationInstruction;
     previousInstruction: NavigationInstruction;
     router: Router;
+    options: Object;
   }
   
   /**
@@ -106,19 +147,12 @@ declare module 'aurelia-router' {
       * like pipeline steps and activated modules.
       */
     settings?: any;
+    
+    /**
+      * The navigation model for storing and interacting with the route's navigation settings.
+      */
+    navModel?: NavModel;
     [x: string]: any;
-  }
-  export class RouteFilterContainer {
-    static inject(): any;
-    constructor(container: Container);
-    addStep(name: string, step: any, index?: number): void;
-    getFilterSteps(name: string): any;
-  }
-  export function createRouteFilterStep(name: string): Function;
-  class RouteFilterStep {
-    isMultiStep: boolean;
-    constructor(name: string, routeFilterContainer: RouteFilterContainer);
-    getSteps(): any;
   }
   
   /**
@@ -126,6 +160,9 @@ declare module 'aurelia-router' {
   */
   export const pipelineStatus: any;
   
+  /**
+  * The class responsible for managing and processing the navigation pipeline.
+  */
   /**
   * The class responsible for managing and processing the navigation pipeline.
   */
@@ -199,6 +236,7 @@ declare module 'aurelia-router' {
       */
     viewPortInstructions: any;
     plan: Object;
+    options: Object;
     constructor(init: NavigationInstructionInit);
     
     /**
@@ -286,6 +324,12 @@ declare module 'aurelia-router' {
   *
   * @param obj The object to check.
   */
+  /**
+  * Determines if the provided object is a navigation command.
+  * A navigation command is anything with a navigate method.
+  *
+  * @param obj The object to check.
+  */
   export function isNavigationCommand(obj: any): boolean;
   
   /**
@@ -329,6 +373,38 @@ declare module 'aurelia-router' {
       * @chainable
       */
     addPipelineStep(name: string, step: Function | PipelineStep): RouterConfiguration;
+    
+    /**
+      * Adds a step to be run during the [[Router]]'s authorize pipeline slot.
+      *
+      * @param step The pipeline step.
+      * @chainable
+      */
+    addAuthorizeStep(step: Function | PipelineStep): RouterConfiguration;
+    
+    /**
+      * Adds a step to be run during the [[Router]]'s preActivate pipeline slot.
+      *
+      * @param step The pipeline step.
+      * @chainable
+      */
+    addPreActivateStep(step: Function | PipelineStep): RouterConfiguration;
+    
+    /**
+      * Adds a step to be run during the [[Router]]'s preRender pipeline slot.
+      *
+      * @param step The pipeline step.
+      * @chainable
+      */
+    addPreRenderStep(step: Function | PipelineStep): RouterConfiguration;
+    
+    /**
+      * Adds a step to be run during the [[Router]]'s postRender pipeline slot.
+      *
+      * @param step The pipeline step.
+      * @chainable
+      */
+    addPostRenderStep(step: Function | PipelineStep): RouterConfiguration;
     
     /**
       * Maps one or more routes to be registered with the router.
@@ -412,12 +488,19 @@ declare module 'aurelia-router' {
       * The parent router, or null if this instance is not a child router.
       */
     parent: Router;
+    options: Object;
     
     /**
       * @param container The [[Container]] to use when child routers.
       * @param history The [[History]] implementation to delegate navigation requests to.
       */
     constructor(container: Container, history: History);
+    
+    /**
+      * Fully resets the router's internal state. Primarily used internally by the framework when multiple calls to setRoot are made.
+      * Use with caution (actually, avoid using this). Do not use this to simply change your navigation model.
+      */
+    reset(): any;
     
     /**
       * Gets a value indicating whether or not this [[Router]] is the root in the router tree. I.e., it has no parent.
@@ -563,6 +646,11 @@ declare module 'aurelia-router' {
       * Create the navigation pipeline.
       */
     createPipeline(): Pipeline;
+    
+    /**
+      * Adds a step into the pipeline at a known slot location.
+      */
+    addStep(name: string, step: PipelineStep): void;
   }
   
   /**
@@ -571,6 +659,12 @@ declare module 'aurelia-router' {
   export class AppRouter extends Router {
     static inject(): any;
     constructor(container: Container, history: History, pipelineProvider: PipelineProvider, events: EventAggregator);
+    
+    /**
+      * Fully resets the router's internal state. Primarily used internally by the framework when multiple calls to setRoot are made.
+      * Use with caution (actually, avoid using this). Do not use this to simply change your navigation model.
+      */
+    reset(): any;
     
     /**
       * Loads the specified URL.

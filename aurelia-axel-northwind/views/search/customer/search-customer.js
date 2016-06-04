@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 define(["require", "exports", 'aurelia-framework', './customer-data-source'], function (require, exports, aurelia_framework_1, customer_data_source_1) {
+    "use strict";
     var SearchCustomer = (function () {
         function SearchCustomer(customerDataSource) {
             var _this = this;
@@ -22,7 +23,7 @@ define(["require", "exports", 'aurelia-framework', './customer-data-source'], fu
             __metadata('design:paramtypes', [Object])
         ], SearchCustomer);
         return SearchCustomer;
-    })();
+    }());
     exports.SearchCustomer = SearchCustomer;
 });
 //# sourceMappingURL=search-customer.js.map

@@ -1,1 +1,1 @@
-{"version":3,"file":"search-product.js","sourceRoot":"","sources":["search-product.ts"],"names":["SearchProduct","SearchProduct.constructor"],"mappings":";IAAA;QAAAA;QACAC,CAACA;QAADD,oBAACA;IAADA,CAACA,AADD,IACC;IADY,qBAAa,gBACzB,CAAA"}
+{"version":3,"file":"search-product.js","sourceRoot":"","sources":["search-product.ts"],"names":[],"mappings":";;IAAC;QAAA;QACD,CAAC;QAAD,oBAAC;IAAD,CAAC,AADA,IACA;IADa,qBAAa,gBAC1B,CAAA"}

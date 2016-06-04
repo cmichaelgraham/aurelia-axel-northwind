@@ -1,13 +1,53 @@
 declare module 'aurelia-templating' {
-  import 'core-js';
   import * as LogManager from 'aurelia-logging';
-  import { Origin, protocol, metadata }  from 'aurelia-metadata';
-  import { relativeToFile }  from 'aurelia-path';
-  import { TemplateRegistryEntry, Loader }  from 'aurelia-loader';
-  import { DOM, PLATFORM, FEATURE }  from 'aurelia-pal';
-  import { Binding, createOverrideContext, ValueConverterResource, BindingBehaviorResource, subscriberCollection, bindingMode, ObserverLocator, EventManager, createScopeForTest }  from 'aurelia-binding';
-  import { Container, resolver, inject }  from 'aurelia-dependency-injection';
-  import { TaskQueue }  from 'aurelia-task-queue';
+  import {
+    DOM,
+    PLATFORM,
+    FEATURE
+  } from 'aurelia-pal';
+  import {
+    Origin,
+    protocol,
+    metadata
+  } from 'aurelia-metadata';
+  import {
+    relativeToFile
+  } from 'aurelia-path';
+  import {
+    TemplateRegistryEntry,
+    Loader
+  } from 'aurelia-loader';
+  import {
+    Binding,
+    createOverrideContext,
+    ValueConverterResource,
+    BindingBehaviorResource,
+    subscriberCollection,
+    bindingMode,
+    ObserverLocator,
+    EventManager,
+    createScopeForTest
+  } from 'aurelia-binding';
+  import {
+    Container,
+    resolver,
+    inject
+  } from 'aurelia-dependency-injection';
+  import {
+    TaskQueue
+  } from 'aurelia-task-queue';
+  export interface CompositionTransactionOwnershipToken {
+    waitForCompositionComplete(): Promise<void>;
+  }
+  export interface CompositionTransactionNotifier {
+    done(): void;
+  }
+  export interface EventHandler {
+    eventName: string;
+    bubbles: boolean;
+    dispose: Function;
+    handler: Function;
+  }
   
   /**
   * Specifies how a view should be created.
@@ -73,6 +113,18 @@ declare module 'aurelia-templating' {
       * @param view The view that was created by the factory.
       */
     afterCreate?: (view: View) => void;
+    
+    /**
+      * Invoked after the bindingContext and overrideContext are configured on the view but before the view is bound.
+      * @param view The view that was created by the factory.
+      */
+    beforeBind?: (view: View) => void;
+    
+    /**
+      * Invoked before the view is unbind. The bindingContext and overrideContext are still available on the view.
+      * @param view The view that was created by the factory.
+      */
+    beforeUnbind?: (view: View) => void;
   }
   
   /**
@@ -134,7 +186,7 @@ declare module 'aurelia-templating' {
     viewModel?: any;
     
     /**
-      * Data to be passed to the "activate" hook on the view model. 
+      * Data to be passed to the "activate" hook on the view model.
       */
     model?: any;
     
@@ -147,6 +199,11 @@ declare module 'aurelia-templating' {
       * The view resources for the view in which the component should be created.
       */
     viewResources: ViewResources;
+    
+    /**
+      * The view inside which this composition is happening.
+      */
+    owningView?: View;
     
     /**
       * The view url or view strategy to override the default view location convention.
@@ -262,6 +319,82 @@ declare module 'aurelia-templating' {
   }
   
   /**
+  * Enables an initiator of a view composition to track any internal async rendering processes for completion.
+  */
+  /**
+  * Enables an initiator of a view composition to track any internal async rendering processes for completion.
+  */
+  export class CompositionTransaction {
+    
+    /**
+      * Creates an instance of CompositionTransaction.
+      */
+    constructor();
+    
+    /**
+      * Attempt to take ownership of the composition transaction.
+      * @return An ownership token if successful, otherwise null.
+      */
+    tryCapture(): CompositionTransactionOwnershipToken;
+    
+    /**
+      * Enlist an async render operation into the transaction.
+      * @return A completion notifier.
+      */
+    enlist(): CompositionTransactionNotifier;
+  }
+  
+  /**
+   * Dispatches subscribets to and publishes events in the DOM.
+   * @param element
+   */
+  /**
+   * Dispatches subscribets to and publishes events in the DOM.
+   * @param element
+   */
+  export class ElementEvents {
+    constructor(element: Element);
+    
+    /**
+       * Dispatches an Event on the context element.
+       * @param eventName
+       * @param detail
+       * @param bubbles
+       * @param cancelable
+       */
+    publish(eventName: string, detail?: Object, bubbles?: boolean, cancelable?: boolean): any;
+    
+    /**
+       * Adds and Event Listener on the context element.
+       * @param eventName
+       * @param handler
+       * @param bubbles
+       * @return Returns the eventHandler containing a dispose method
+       */
+    subscribe(eventName: string, handler: Function, bubbles?: boolean): EventHandler;
+    
+    /**
+       * Adds an Event Listener on the context element, that will be disposed on the first trigger.
+       * @param eventName
+       * @param handler
+       * @param bubbles
+       * @return Returns the eventHandler containing a dispose method
+       */
+    subscribeOnce(eventName: String, handler: Function, bubbles?: Boolean): EventHandler;
+    
+    /**
+       * Removes all events that are listening to the specified eventName.
+       * @param eventName
+       */
+    dispose(eventName: string): void;
+    
+    /**
+       * Removes all event handlers.
+       */
+    disposeAll(): any;
+  }
+  
+  /**
   * A context that flows through the view resource load process.
   */
   export class ResourceLoadContext {
@@ -292,7 +425,7 @@ declare module 'aurelia-templating' {
     /**
       * The normal configuration for view compilation.
       */
-    static normal: any;
+    static normal: ViewCompileInstruction;
     
     /**
       * Creates an instance of ViewCompileInstruction.
@@ -305,12 +438,15 @@ declare module 'aurelia-templating' {
   /**
   * Indicates how a custom attribute or element should be instantiated in a view.
   */
+  /**
+  * Indicates how a custom attribute or element should be instantiated in a view.
+  */
   export class BehaviorInstruction {
     
     /**
       * A default behavior used in scenarios where explicit configuration isn't available.
       */
-    static normal: any;
+    static normal: BehaviorInstruction;
     
     /**
       * Creates an instruction for element enhancement.
@@ -418,6 +554,9 @@ declare module 'aurelia-templating' {
     constructor();
   }
   
+  /**
+  * Decorator: Indicates that the decorated class/object is a view strategy.
+  */
   /**
   * Decorator: Indicates that the decorated class/object is a view strategy.
   */
@@ -600,6 +739,9 @@ declare module 'aurelia-templating' {
     parseText(resources: ViewResources, value: string): Object;
   }
   
+  /**
+  * Represents a collection of resources used during the compilation of a view.
+  */
   /**
   * Represents a collection of resources used during the compilation of a view.
   */
@@ -858,9 +1000,6 @@ declare module 'aurelia-templating' {
       */
     detached(): void;
   }
-  class ProviderResolver {
-    get(container: any, key: any): any;
-  }
   
   /**
   * A factory capable of creating View instances, bound to a location within another view hierarchy.
@@ -875,6 +1014,7 @@ declare module 'aurelia-templating' {
       */
     constructor(parentContainer: Container, viewFactory: ViewFactory, partReplacements?: Object);
     
+    //This is referenced internally in the controller's bind method.
     /**
       * Creates a view or returns one from the internal cache, if available.
       * @return The created view.
@@ -993,7 +1133,7 @@ declare module 'aurelia-templating' {
     initialize(container: Container): void;
     
     /**
-      * Registrers the resources in the module with the view resources.
+      * Registers the resources in the module with the view resources.
       * @param registry The registry of view resources to regiser within.
       * @param name The name to use in registering the default resource.
       */
@@ -1068,14 +1208,6 @@ declare module 'aurelia-templating' {
       * @return The ResouceModule representing the analysis.
       */
     analyze(moduleId: string, moduleInstance: any, mainResourceKey?: string): ResourceModule;
-  }
-  class ProxyViewFactory {
-    constructor(promise: any);
-    create(container: Container, bindingContext?: Object, createInstruction?: ViewCreateInstruction, element?: Element): View;
-    isCaching: any;
-    setCacheSize(size: number | string, doNotOverrideIfAlreadySet: boolean): void;
-    getCachedView(): View;
-    returnViewToCache(view: View): void;
   }
   
   /**
@@ -1164,20 +1296,21 @@ declare module 'aurelia-templating' {
       * @param instruction The instructions pertaining to the controller's behavior.
       * @param viewModel The developer's view model instance which provides the custom behavior for this controller.
       */
-    constructor(behavior: HtmlBehaviorResource, instruction: BehaviorInstruction, viewModel: Object);
+    constructor(behavior: HtmlBehaviorResource, instruction: BehaviorInstruction, viewModel: Object, elementEvents?: ElementEvents);
     
     /**
       * Invoked when the view which contains this controller is created.
       * @param owningView The view inside which this controller resides.
       */
-    created(owningView: any): void;
+    created(owningView: View): void;
     
     /**
       * Used to automate the proper binding of this controller and its view. Used by the composition engine for dynamic component creation.
       * This should be considered a semi-private API and is subject to change without notice, even across minor or patch releases.
       * @param overrideContext An override context for binding.
+      * @param owningView The view inside which this controller resides.
       */
-    automate(overrideContext?: Object): void;
+    automate(overrideContext?: Object, owningView?: View): void;
     
     /**
       * Binds the controller to the scope.
@@ -1357,25 +1490,14 @@ declare module 'aurelia-templating' {
   }
   
   /**
-  * Creates a behavior property that references an array of immediate content child elememnts that matches the provided selector.
+  * Creates a behavior property that references an array of immediate content child elements that matches the provided selector.
   */
   export function children(selectorOrConfig: string | Object): any;
   
   /**
-  * Creates a behavior property that references an immediate content child elememnt that matches the provided selector.
+  * Creates a behavior property that references an immediate content child element that matches the provided selector.
   */
   export function child(selectorOrConfig: string | Object): any;
-  class ChildObserver {
-    constructor(config: any);
-    create(target: any, viewModel: any): any;
-  }
-  class ChildObserverBinder {
-    constructor(selector: any, target: any, property: any, viewModel: any, changeHandler: any, all: any);
-    bind(source: any): any;
-    onRemove(element: any): any;
-    onAdd(element: any): any;
-    unbind(): any;
-  }
   
   /**
   * Used to dynamically compose components.
@@ -1481,7 +1603,7 @@ declare module 'aurelia-templating' {
   */
   export function bindable(nameOrConfigOrTarget?: string | Object, key?: any, descriptor?: any): any;
   
-  // placed on a class
+  //placed on a class
   /**
   * Decorator: Specifies that the decorated custom attribute has options that
   * are dynamic, based on their presence in HTML and not statically known.
@@ -1490,9 +1612,15 @@ declare module 'aurelia-templating' {
   
   /**
   * Decorator: Indicates that the custom element should render its view in Shadow
-  * DOM. This decorator may change slighly when Aurelia updates to Shadow DOM v1.
+  * DOM. This decorator may change slightly when Aurelia updates to Shadow DOM v1.
   */
   export function useShadowDOM(target?: any): any;
+  
+  /**
+  * Decorator: Enables custom processing of the attributes on an element before the framework inspects them.
+  * @param processor Pass a function which can provide custom processing of the content.
+  */
+  export function processAttributes(processor: Function): any;
   
   /**
   * Decorator: Enables custom processing of the content that is places inside the
@@ -1545,13 +1673,17 @@ declare module 'aurelia-templating' {
   /**
   * A facade of the templating engine capabilties which provides a more user friendly API for common use cases.
   */
+  
+  /**
+  * A facade of the templating engine capabilties which provides a more user friendly API for common use cases.
+  */
   export class TemplatingEngine {
     
     /**
       * Creates an instance of TemplatingEngine.
       * @param container The root DI container.
       * @param moduleAnalyzer The module analyzer for discovering view resources.
-      * @param viewCompiler The view compiler...for compiling views ;)
+      * @param viewCompiler The view compiler for compiling views.
       * @param compositionEngine The composition engine used during dynamic component composition.
       */
     constructor(container: Container, moduleAnalyzer: ModuleAnalyzer, viewCompiler: ViewCompiler, compositionEngine: CompositionEngine);
@@ -1566,7 +1698,7 @@ declare module 'aurelia-templating' {
        * Dynamically composes components and views.
        * @param context The composition context to use.
        * @return A promise for the resulting Controller or View. Consumers of this API
-       * are responsible for enforcing the Controller/View lifecyle.
+       * are responsible for enforcing the Controller/View lifecycle.
        */
     compose(context: CompositionContext): Promise<View | Controller>;
     
@@ -1574,7 +1706,7 @@ declare module 'aurelia-templating' {
        * Enhances existing DOM with behaviors and bindings.
        * @param instruction The element to enhance or a set of instructions for the enhancement process.
        * @return A View representing the enhanced UI. Consumers of this API
-       * are responsible for enforcing the View lifecyle.
+       * are responsible for enforcing the View lifecycle.
        */
     enhance(instruction: Element | EnhanceInstruction): View;
     

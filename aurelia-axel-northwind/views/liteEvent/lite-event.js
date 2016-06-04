@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var LiteEvent = (function () {
         function LiteEvent() {
             this.handlers = [];
@@ -13,7 +14,7 @@ define(["require", "exports"], function (require, exports) {
             this.handlers.slice(0).forEach(function (h) { return h(data); });
         };
         return LiteEvent;
-    })();
+    }());
     exports.LiteEvent = LiteEvent;
 });
 //# sourceMappingURL=lite-event.js.map

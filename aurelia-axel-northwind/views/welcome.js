@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     var Welcome = (function () {
         function Welcome() {
             this.heading = 'Welcome to the Aurelia Navigation App!';
@@ -20,7 +21,7 @@ define(["require", "exports"], function (require, exports) {
             alert("Welcome, " + this.fullName + "!");
         };
         return Welcome;
-    })();
+    }());
     exports.Welcome = Welcome;
     var UpperValueConverter = (function () {
         function UpperValueConverter() {
@@ -29,7 +30,7 @@ define(["require", "exports"], function (require, exports) {
             return value && value.toUpperCase();
         };
         return UpperValueConverter;
-    })();
+    }());
     exports.UpperValueConverter = UpperValueConverter;
 });
 //# sourceMappingURL=welcome.js.map

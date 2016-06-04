@@ -13,11 +13,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 define(["require", "exports", 'aurelia-framework', '../../odata/odata-service', '../../odata/odata-paged-data-source'], function (require, exports, aurelia_framework_1, odata_service_1, odata_paged_data_source_1) {
+    "use strict";
     var CustomerSearchCriteria = (function () {
         function CustomerSearchCriteria() {
         }
         return CustomerSearchCriteria;
-    })();
+    }());
     exports.CustomerSearchCriteria = CustomerSearchCriteria;
     var CustomerDataSource = (function (_super) {
         __extends(CustomerDataSource, _super);
@@ -62,7 +63,7 @@ define(["require", "exports", 'aurelia-framework', '../../odata/odata-service', 
             __metadata('design:paramtypes', [Object])
         ], CustomerDataSource);
         return CustomerDataSource;
-    })(odata_paged_data_source_1.OdataPagedDataSource);
+    }(odata_paged_data_source_1.OdataPagedDataSource));
     exports.CustomerDataSource = CustomerDataSource;
 });
 //# sourceMappingURL=customer-data-source.js.map

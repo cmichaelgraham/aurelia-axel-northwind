@@ -1,15 +1,21 @@
 declare module 'aurelia-http-client' {
-  import 'core-js';
-  import { join, buildQueryString }  from 'aurelia-path';
-  import { PLATFORM, DOM }  from 'aurelia-pal';
+  import {
+    join,
+    buildQueryString
+  } from 'aurelia-path';
+  import {
+    PLATFORM,
+    DOM
+  } from 'aurelia-pal';
   
   /**
    * Creates an XHR implementation.
    */
   export interface XHRConstructor {
+  
   }
   
-  // new():XHR;
+  //new():XHR;
   /**
    * Represents an XHR.
    */
@@ -74,7 +80,11 @@ declare module 'aurelia-http-client' {
   /**
    * Represents an XHR transformer.
    */
+  /**
+   * Represents an XHR transformer.
+   */
   export interface XHRTransformer {
+    (client: HttpClient, processor: RequestMessageProcessor, message: RequestMessage, xhr: XHR): void;
   }
   
   /**
@@ -106,7 +116,11 @@ declare module 'aurelia-http-client' {
   /**
    * Transforms a request.
    */
+  /**
+   * Transforms a request.
+   */
   export interface RequestTransformer {
+    (client: HttpClient, processor: RequestMessageProcessor, message: RequestMessage): void;
   }
   
   /**
@@ -222,7 +236,7 @@ declare module 'aurelia-http-client' {
     /**
       * The status code of the response.
       */
-    statusCode: string;
+    statusCode: number;
     
     /**
       * The raw response.
@@ -250,6 +264,11 @@ declare module 'aurelia-http-client' {
     mimeType: string;
     
     /**
+      * The headers received with the response.
+      */
+    headers: Headers;
+    
+    /**
       * Creates an instance of HttpResponseMessage.
       * @param requestMessage The request message that resulted in this response.
       * @param xhr The XHR instance that made the request.
@@ -272,6 +291,9 @@ declare module 'aurelia-http-client' {
    */
   export let mimeTypes: any;
   
+  /**
+   * Processes request messages.
+   */
   /**
    * Processes request messages.
    */
@@ -371,12 +393,6 @@ declare module 'aurelia-http-client' {
       */
     constructor(url: string, callbackParameterName: string);
   }
-  class JSONPXHR {
-    open(method: string, url: string): void;
-    send(): void;
-    abort(): void;
-    setRequestHeader(): any;
-  }
   
   /**
   * Creates a RequestMessageProcessor for handling JSONP request messages.
@@ -390,6 +406,11 @@ declare module 'aurelia-http-client' {
   export class HttpRequestMessage extends RequestMessage {
     
     /**
+      * A replacer function to use in transforming the content.
+      */
+    replacer: ((key: string, value: any) => any);
+    
+    /**
       * Creates an instance of HttpRequestMessage.
       * @param method The http method.
       * @param url The url to submit the request to.
@@ -399,13 +420,16 @@ declare module 'aurelia-http-client' {
     constructor(method: string, url: string, content: any, headers?: Headers);
   }
   
-  // text, arraybuffer, blob, document
+  //text, arraybuffer, blob, document
   /**
   * Creates a RequestMessageProcessor for handling HTTP request messages.
   * @return A processor instance for HTTP request messages.
   */
   export function createHttpRequestMessageProcessor(): RequestMessageProcessor;
   
+  /**
+   * A builder class allowing fluent composition of HTTP requests.
+   */
   /**
    * A builder class allowing fluent composition of HTTP requests.
    */
@@ -590,6 +614,11 @@ declare module 'aurelia-http-client' {
   * The main HTTP client object.
   */
   export class HttpClient {
+    
+    /**
+      * Indicates whether or not the client is in the process of requesting resources.
+      */
+    isRequesting: boolean;
     
     /**
       * Creates an instance of HttpClient.

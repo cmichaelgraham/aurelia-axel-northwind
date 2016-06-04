@@ -1,4 +1,5 @@
 define(["require", "exports"], function (require, exports) {
+    "use strict";
     /**
      * The OdataHelper provides a [fluent api](https://en.wikipedia.org/wiki/Fluent_interface) for constructing [odata urls](http://www.odata.org/documentation/odata-version-2-0/uri-conventions/)
      */
@@ -117,7 +118,7 @@ define(["require", "exports"], function (require, exports) {
             };
         }
         return OdataHelper;
-    })();
+    }());
     exports.OdataHelper = OdataHelper;
 });
 //# sourceMappingURL=odata-helper.js.map

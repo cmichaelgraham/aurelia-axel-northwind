@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 define(["require", "exports", 'aurelia-framework', 'aurelia-fetch-client', 'fetch'], function (require, exports, aurelia_framework_1, aurelia_fetch_client_1) {
+    "use strict";
     var Users = (function () {
         function Users(http) {
             this.heading = 'Github Users';
@@ -30,7 +31,7 @@ define(["require", "exports", 'aurelia-framework', 'aurelia-fetch-client', 'fetc
             __metadata('design:paramtypes', [Object])
         ], Users);
         return Users;
-    })();
+    }());
     exports.Users = Users;
 });
 //# sourceMappingURL=users.js.map
